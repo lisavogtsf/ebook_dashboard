@@ -28,6 +28,11 @@ console.log(__dirname);
 
 // set up routes
 
+// set up root route
+app.get('/', function(req, res){
+  res.redirect('login');
+});
+
 // For any incorrect URL routes 
 app.get('*', function(req,res){
   res.status(404);
