@@ -28,18 +28,27 @@ console.log(__dirname);
 
 // set up routes
 
-// set up root route
+// set up root route, redirect to login
 app.get('/', function(req, res){
   res.redirect('login');
+  console.log("redirecting to login");
+});
+
+// set up login route, will change with passport
+app.get('/login', function(req, res){
+  res.render('login');
+  // console.log('LOGIN PAGE SHOULD BE WORKING');
 });
 
 // For any incorrect URL routes 
-app.get('*', function(req,res){
+app.get('/*', function(req,res){
   res.status(404);
   res.render('error');
+  // res.redirect('login');
+  // console.log('ERROR PAGE WORKING PROPERLY IF THIS SHOWS UP');
 });
 
 
 app.listen(3000, function(){
-  console.log("We only care about port 3000. Does that make the other ports feel unpopular?");  
+  console.log("We only care about port 3000. How does that make the other ports feel?");  
 });
