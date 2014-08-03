@@ -14,7 +14,7 @@ var express = require('express'),
 // var db = require('./models/index');
 var app = express();
 
-app.set('view enginge', 'ejs');
+app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 
 // set up cookie sessions
