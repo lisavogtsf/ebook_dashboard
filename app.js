@@ -1,6 +1,8 @@
 // Lisa Vogt
 // WDI-SF-July-2014
 // app.js routing file for express server
+// starter template for app.js from
+// https://github.com/wdi-sf-july/final_passport_example/blob/master/app.js
 
 var express = require('express'),
   bodyParser = require('body-parser'),
@@ -8,8 +10,8 @@ var express = require('express'),
   passportLocal = require('passport-local'),
   cookieParser = require('cookie-parser'),
   cookieSession = require('cookie-session'),
-  flash = require('flash-connect');
-var db = require('./models/index');
+  flash = require('connect-flash');
+// var db = require('./models/index');
 var app = express();
 
 app.set('view enginge', 'ejs');
