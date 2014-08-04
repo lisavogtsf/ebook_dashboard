@@ -11,7 +11,7 @@ var express = require('express'),
   cookieParser = require('cookie-parser'),
   cookieSession = require('cookie-session'),
   flash = require('connect-flash');
-// var db = require('./models/index');
+var db = require('./models/index');
 var app = express();
 
 app.set('view engine', 'ejs');
