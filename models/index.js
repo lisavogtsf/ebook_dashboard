@@ -5,7 +5,7 @@ var fs        = require('fs')
   , env       = process.env.NODE_ENV || 'development'
   , config    = require(__dirname + '/../config/config.json')[env]
   , sequelize = new Sequelize(config.database, config.username, config.password, config)
-  , db        = {}
+  , db        = {};
 
 fs
   .readdirSync(__dirname)
@@ -22,6 +22,13 @@ Object.keys(db).forEach(function(modelName) {
     db[modelName].associate(db)
   }
 })
+
+// console.log("this is the models/index.js");
+// var noob = db.createNewUser('test', 'password');
+// console.log('testing new user', noob);
+// // TypeError: Object #<Object> has no method 'createNewUser'
+
+
 
 module.exports = lodash.extend({
   sequelize: sequelize,
