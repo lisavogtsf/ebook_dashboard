@@ -18,7 +18,8 @@ module.exports = {
     .complete(done);
   },
   down: function(migration, DataTypes, done) {
-    // add reverting commands here, calling 'done' when finished
-    done()
+    migration.dropTable('authors')
+    .complete(done);
+
   }
-}
+};
