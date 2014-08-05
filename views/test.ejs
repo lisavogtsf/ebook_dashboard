@@ -7,13 +7,14 @@
     <ul>
       <!-- passed {movieList: body} -->
       <li>ISBN: <%=searchRequest%></li>
-      <li>Title (trackName): <a href="<%= iTunesResults.trackViewUrl %>"> <%= iTunesResults.trackName %> </a></li>
-      <li>Author (artistName): <%= iTunesResults.artistName %></li>
-      <li><img src="<%=iTunesResults.artworkUrl100%>"></li>
-      <li>Description: <%=iTunesResults.description%></li>
+      <li>Title (trackName): <a href="<%= iTunesResults[0].trackViewUrl %>"> <%= iTunesResults[0].trackName %> </a></li>
+      <li>Author (artistName): <%= iTunesResults[0].artistName %></li>
+      <li><img src="<%=iTunesResults[0].artworkUrl100%>"></li>
+      <li>Description: <%=iTunesResults[0].description%></li>
       <li>(No publisher/imprint information provided.)</li>
       <li>Pricing:<ul>
-        <li><%=iTunesResults.formattedPrice%></li>
+        <li><%=iTunesResults[0].formattedPrice%> <%=iTunesResults[0].currency%></li>
+        <li><%=iTunesResults[1].formattedPrice%> <%=iTunesResults[1].currency%></li>
         </ul>
       </li>
     </ul>

@@ -112,7 +112,7 @@ app.get('/search', function(req, res){
     }
   ], function(err, iTunesResults){
       res.render("test", {
-        iTunesResults: iTunesResults[1],
+        iTunesResults: iTunesResults,
         searchRequest: req.query.searchTerm
       });
   })
