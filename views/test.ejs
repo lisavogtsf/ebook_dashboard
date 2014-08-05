@@ -6,9 +6,16 @@
   <h1>Testing my API</h1>
     <ul>
       <!-- passed {movieList: body} -->
-      
-      <li><a href="<%= iTunesResults.trackViewUrl %>"> <%= iTunesResults.trackName %> </a></li>
-      
+      <li>ISBN: <%=searchRequest%></li>
+      <li>Title (trackName): <a href="<%= iTunesResults.trackViewUrl %>"> <%= iTunesResults.trackName %> </a></li>
+      <li>Author (artistName): <%= iTunesResults.artistName %></li>
+      <li><img src="<%=iTunesResults.artworkUrl100%>"></li>
+      <li>Description: <%=iTunesResults.description%></li>
+      <li>(No publisher/imprint information provided.)</li>
+      <li>Pricing:<ul>
+        <li><%=iTunesResults.formattedPrice%></li>
+        </ul>
+      </li>
     </ul>
   
 
