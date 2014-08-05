@@ -59,12 +59,12 @@ app.get('/search', function(req, res){
   console.log("search URL, ", searchURL);
   request(searchURL, function(error, response, body){
     if (!error && response.statusCode == 200) {
-    console.log(body) // Print the google web page.
-    // console.log('error, ', error);
-    // if (!error){
-    //   var data = JSON.parse(body); 
-    //   console.log("testing with iTunes data ", data.Search);
-    //   res.render("test", {movieList: data.Search || []});
+      console.log(body) 
+      var data = JSON.parse(body);
+      // below shows whole object of result 0
+      console.log(data.results[0]);
+      var iTunesResults = data.results[0];
+      res.render("test", {movieList: iTunesResults || []});
 
     }
   });

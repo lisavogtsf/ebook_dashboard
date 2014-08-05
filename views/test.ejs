@@ -6,9 +6,9 @@
   <h1>Testing my API</h1>
     <ul>
       <!-- passed {movieList: body} -->
-      <% movieList.forEach(function(film){ %>
-      <li><a href="movie/<%= film.imdbID %>"> <%= film.Title %> </a></li>
-      <%  }) %>
+      
+      <li><a href="movie/<%= movieList.trackName %>"> <%= movieList.trackName %> </a></li>
+      
     </ul>
   
 
