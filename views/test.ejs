@@ -13,8 +13,9 @@
       <li>Description: <%=iTunesResults[0].description%></li>
       <li>(No publisher/imprint information provided.)</li>
       <li>Pricing:<ul>
-        <li><%=iTunesResults[0].formattedPrice%> <%=iTunesResults[0].currency%></li>
-        <li><%=iTunesResults[1].formattedPrice%> <%=iTunesResults[1].currency%></li>
+        <% for (var i = 0; i < iTunesResults.length; i++) { %>
+        <li><%=iTunesResults[i].formattedPrice%> <%=iTunesResults[i].currency%></li>
+          <% }%>
         </ul>
       </li>
     </ul>

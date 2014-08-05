@@ -85,6 +85,20 @@ app.get('/search', function(req, res){
 
   async.parallel([
     function(done){
+    var searchRequest = req.query.searchTerm;
+    var gbSearchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=us";
+    request(gbSearchURL, function(error, response, body){
+      if (!error && response.statusCode == 200) {
+        // console.log(body) 
+        var data = JSON.parse(body);
+        // below shows whole object of result 0
+        console.log(data.results[0]);
+        done(null, data.results[0]);
+      }
+    });
+  },
+  // UK pricing
+    function(done){
       var searchRequest = req.query.searchTerm;
       var gbSearchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=gb";
       request(gbSearchURL, function(error, response, body){
@@ -97,9 +111,24 @@ app.get('/search', function(req, res){
         }
       });
     },
+    // Australian pricing
     function(done){
       var searchRequest = req.query.searchTerm;
       var gbSearchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=au";
+      request(gbSearchURL, function(error, response, body){
+        if (!error && response.statusCode == 200) {
+          // console.log(body) 
+          var data = JSON.parse(body);
+          // below shows whole object of result 0
+          console.log(data.results[0]);
+          done(null, data.results[0]);
+        }
+      });
+    },
+    // canadian pricing
+    function(done){
+      var searchRequest = req.query.searchTerm;
+      var gbSearchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=ca";
       request(gbSearchURL, function(error, response, body){
         if (!error && response.statusCode == 200) {
           // console.log(body) 
