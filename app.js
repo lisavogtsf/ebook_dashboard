@@ -10,7 +10,8 @@ var express = require('express'),
   passportLocal = require('passport-local'),
   cookieParser = require('cookie-parser'),
   cookieSession = require('cookie-session'),
-  flash = require('connect-flash');
+  flash = require('connect-flash'),
+  request = require('request');
 var db = require('./models/index');
 var app = express();
 
@@ -37,6 +38,7 @@ app.get('/', function(req, res){
 // set up login route, will change with passport
 app.get('/login', function(req, res){
   res.render('login');
+  console.log("req.body ", req.body);
   // console.log('LOGIN PAGE SHOULD BE WORKING');
 });
 
@@ -44,6 +46,29 @@ app.get('/login', function(req, res){
 app.get('/signup', function(req, res){
   res.render('signup');
 });
+
+// set up signup route, will change with passport
+app.get('/details', function(req, res){
+  res.render('details');
+});
+
+app.get('/search', function(req, res){
+  // res.send("search page: " + query);
+  console.log(req.query.searchTerm);
+
+  var searchRequest = req.query.searchTerm;
+  var searchURL = "http://www.omdbapi.com/?s=" + searchRequest;
+  request(searchURL, function(error, response, body){
+    if (!error){
+      var data = JSON.parse(body); 
+      console.log("testing with omdb data ", data.Search);
+      res.render("test", {movieList: data.Search || []});
+
+    }
+  });
+});
+
+
 
 
 // For any incorrect URL routes 
