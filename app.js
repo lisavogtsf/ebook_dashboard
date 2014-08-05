@@ -79,7 +79,43 @@ app.get('/login', function(req, res){
 
 // set up signup route, will change with passport
 app.get('/signup', function(req, res){
-  res.render('signup');
+  if(!req.user) {
+    res.render("signup", { username: ""});
+  } else {
+    res.redirect('/home');
+  }
+});
+
+app.get('/home', function(req, res){
+  res.render('home', {
+    isAuthenticated: req.isAuthenticated(),
+    user: req.user
+  });
+});
+
+app.post('/submit', function(req, res){
+  console.log('after signup, req ', req);
+  // console.log('after signup, req.body ', req.body);
+  // console.log('after signup,' req.body.username);
+  // console.log('after signup,' req.body.password);
+  db.user.createNewUser(req.body.username, req.body.password,
+    function(err){
+      res.render('signup', {message: err.message, username: req.body.username});
+    },
+    function(success){
+      res.render('home', {message: success.message});
+    });
+});
+//authenticate users when logging in
+app.post('/login', passport.authenticate('local', {
+  successRedirect: '/home',
+  failureRedirect: '/login',
+  failureFlash: true
+}));
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
 });
 
 // set up signup route, will change with passport
