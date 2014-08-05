@@ -13,8 +13,9 @@
       <li>Description: <%=iTunesResults[0].description%></li>
       <li>(No publisher/imprint information provided.)</li>
       <li>Pricing:<ul>
+        <% var countries = ["United States", "Great Britain", "Australia", "Canada", "France", "Germany"]; %>
         <% for (var i = 0; i < iTunesResults.length; i++) { %>
-        <li><%=iTunesResults[i].formattedPrice%> <%=iTunesResults[i].currency%></li>
+        <li><%=countries[i]%>: <%=iTunesResults[i].formattedPrice%> <%=iTunesResults[i].currency%></li>
           <% }%>
         </ul>
       </li>

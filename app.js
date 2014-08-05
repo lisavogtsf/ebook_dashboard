@@ -61,33 +61,12 @@ app.get('/details', function(req, res){
 
 // works but I want to try for multiple prices
 app.get('/search', function(req, res){
-  // console.log(req.query.searchTerm);
-  // event.preventDefault();
-  // how to keep from putting search in url
-  // var searchRequest = req.query.searchTerm;
-  // var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest;
-  // // console.log("search URL, ", searchURL);
-  // request(searchURL, function(error, response, body){
-  //   if (!error && response.statusCode == 200) {
-  //     // console.log(body) 
-  //     var data = JSON.parse(body);
-  //     // below shows whole object of result 0
-  //     console.log(data.results[0]);
-  //     var iTunesResults = data.results[0];
-  //     res.render("test", {
-  //       iTunesResults: iTunesResults,
-  //       searchRequest: searchRequest
-  //     });
-
-  //   }
-  // });
   // UK pricing
-
   async.parallel([
     function(done){
     var searchRequest = req.query.searchTerm;
-    var gbSearchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=us";
-    request(gbSearchURL, function(error, response, body){
+    var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=us";
+    request(searchURL, function(error, response, body){
       if (!error && response.statusCode == 200) {
         // console.log(body) 
         var data = JSON.parse(body);
@@ -100,8 +79,8 @@ app.get('/search', function(req, res){
   // UK pricing
     function(done){
       var searchRequest = req.query.searchTerm;
-      var gbSearchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=gb";
-      request(gbSearchURL, function(error, response, body){
+      var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=gb";
+      request(searchURL, function(error, response, body){
         if (!error && response.statusCode == 200) {
           // console.log(body) 
           var data = JSON.parse(body);
@@ -114,8 +93,8 @@ app.get('/search', function(req, res){
     // Australian pricing
     function(done){
       var searchRequest = req.query.searchTerm;
-      var gbSearchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=au";
-      request(gbSearchURL, function(error, response, body){
+      var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=au";
+      request(searchURL, function(error, response, body){
         if (!error && response.statusCode == 200) {
           // console.log(body) 
           var data = JSON.parse(body);
@@ -128,8 +107,36 @@ app.get('/search', function(req, res){
     // canadian pricing
     function(done){
       var searchRequest = req.query.searchTerm;
-      var gbSearchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=ca";
-      request(gbSearchURL, function(error, response, body){
+      var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=ca";
+      request(searchURL, function(error, response, body){
+        if (!error && response.statusCode == 200) {
+          // console.log(body) 
+          var data = JSON.parse(body);
+          // below shows whole object of result 0
+          console.log(data.results[0]);
+          done(null, data.results[0]);
+        }
+      });
+    },
+    // french pricing
+    function(done){
+      var searchRequest = req.query.searchTerm;
+      var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=fr";
+      request(searchURL, function(error, response, body){
+        if (!error && response.statusCode == 200) {
+          // console.log(body) 
+          var data = JSON.parse(body);
+          // below shows whole object of result 0
+          console.log(data.results[0]);
+          done(null, data.results[0]);
+        }
+      });
+    },
+    // german pricing
+    function(done){
+      var searchRequest = req.query.searchTerm;
+      var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=de";
+      request(searchURL, function(error, response, body){
         if (!error && response.statusCode == 200) {
           // console.log(body) 
           var data = JSON.parse(body);
