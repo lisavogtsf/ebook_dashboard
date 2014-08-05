@@ -1,5 +1,6 @@
 // ebook.js
 module.exports = function(sequelize, Datatypes){
+// function Ebook(sequelize, Datatypes){
   var Ebook = sequelize.define('ebook', {
     isbn: {
       type: DataTypes.STRING,
@@ -20,7 +21,8 @@ module.exports = function(sequelize, Datatypes){
         Ebook.belongsTo(db.author);
       }
     }
-  }) return Ebook;
+  }) 
+  return Ebook;
 }
 
 // not this?

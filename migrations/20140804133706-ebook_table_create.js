@@ -26,6 +26,6 @@ module.exports = {
   },
   down: function(migration, DataTypes, done) {
     migration.dropTable('ebooks')
-    .completed(done);
+    .complete(done);
   }
 }

@@ -23,7 +23,7 @@ Object.keys(db).forEach(function(modelName) {
   }
 })
 
-// console.log("this is the models/index.js");
+console.log("this is the models/index.js");
 // var noob = db.createNewUser('test', 'password');
 // console.log('testing new user', noob);
 // // TypeError: Object #<Object> has no method 'createNewUser'
