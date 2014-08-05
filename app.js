@@ -54,6 +54,8 @@ app.get('/details', function(req, res){
 
 app.get('/search', function(req, res){
   // console.log(req.query.searchTerm);
+  // event.preventDefault();
+  // how to keep from putting search in url
   var searchRequest = req.query.searchTerm;
   var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest;
   console.log("search URL, ", searchURL);
@@ -64,7 +66,7 @@ app.get('/search', function(req, res){
       // below shows whole object of result 0
       console.log(data.results[0]);
       var iTunesResults = data.results[0];
-      res.render("test", {movieList: iTunesResults || []});
+      res.render("test", {iTunesResults: iTunesResults || []});
 
     }
   });
