@@ -11,6 +11,8 @@ var express = require('express'),
   cookieParser = require('cookie-parser'),
   cookieSession = require('cookie-session'),
   flash = require('connect-flash'),
+  // a module for help making async requests
+  async = require('async'),
   request = require('request');
 var db = require('./models/index');
 var app = express();
@@ -19,9 +21,14 @@ app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({extended: false}));
 // allow access to local stylesheet
 app.use(express.static(__dirname + '/public'));
-console.log(__dirname);
 
 // set up cookie sessions
+app.use(cookieSession({
+  secret: "mysecretkey",
+  name: "session with cookie data",
+  maxage: 360000
+  })
+);
 
 // set up passport serializer
 
@@ -75,21 +82,41 @@ app.get('/search', function(req, res){
   //   }
   // });
   // UK pricing
-  var searchRequest = req.query.searchTerm;
-  var gbSearchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=gb";
-  request(gbSearchURL, function(error, response, body){
-  if (!error && response.statusCode == 200) {
-    // console.log(body) 
-    var data = JSON.parse(body);
-    // below shows whole object of result 0
-    console.log(data.results[0]);
-    var iTunesResults = data.results[0];
-    res.render("test", {
-      iTunesResults: iTunesResults,
-      searchRequest: searchRequest
-    });
+
+  async.parallel([
+    function(done){
+      var searchRequest = req.query.searchTerm;
+      var gbSearchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=gb";
+      request(gbSearchURL, function(error, response, body){
+        if (!error && response.statusCode == 200) {
+          // console.log(body) 
+          var data = JSON.parse(body);
+          // below shows whole object of result 0
+          console.log(data.results[0]);
+          done(null, data.results[0]);
+        }
+      });
+    },
+    function(done){
+      var searchRequest = req.query.searchTerm;
+      var gbSearchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=au";
+      request(gbSearchURL, function(error, response, body){
+        if (!error && response.statusCode == 200) {
+          // console.log(body) 
+          var data = JSON.parse(body);
+          // below shows whole object of result 0
+          console.log(data.results[0]);
+          done(null, data.results[0]);
+        }
+      });
     }
-  });
+  ], function(err, iTunesResults){
+      res.render("test", {
+        iTunesResults: iTunesResults[1],
+        searchRequest: req.query.searchTerm
+      });
+  })
+
 
 });
 
