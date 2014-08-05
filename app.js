@@ -29,24 +29,52 @@ app.use(cookieSession({
   maxage: 360000
   })
 );
+// get passport started
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
 
 // set up passport serializer
+passport.serializeUser(function(user, done){
+  console.log("SERIALIZED JUST RAN");
+  done(null, user.id);
+})
 
 // set up passport deserializer
+passport.deserializeUser(function(id, done){
+  console.log("DESERIALIZED RAN JUST NOW");
+  db.user.find({
+    where: {
+      id: id
+    }
+  })
+  .done(function(error, user){
+    done(error, user);
+  });
+});
 
-// set up routes
 
-// set up root route, redirect to login
+// set up root route, check if user is logged in
+// redirect to home or login
 app.get('/', function(req, res){
-  res.redirect('/login');
-  console.log("redirecting to login");
+  if(!req.user) {
+    res.render('login');
+  } else {
+    res.redirect('/home');  
+  }
 });
 
 // set up login route, will change with passport
 app.get('/login', function(req, res){
-  res.render('login');
-  console.log("req.body ", req.body);
-  // console.log('LOGIN PAGE SHOULD BE WORKING');
+  if (!req.user) {
+    res.render('login', {message: req.flash('loginMessage'), username: ""});
+  } else {
+    res.redirect('home');
+  }
+  // res.render('login');
+  // console.log("req.body ", req.body);
+  // // console.log('LOGIN PAGE SHOULD BE WORKING');
 });
 
 // set up signup route, will change with passport
