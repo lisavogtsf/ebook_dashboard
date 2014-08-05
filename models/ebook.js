@@ -1,8 +1,7 @@
 // ebook.js
-module.exports = function(sequelize, Datatypes){
-// function Ebook(sequelize, Datatypes){
+module.exports = function (sequelize, DataTypes){
   var Ebook = sequelize.define('ebook', {
-    isbn: {
+    isbn: { 
       type: DataTypes.STRING,
       unique: true,
       allowNull: false
