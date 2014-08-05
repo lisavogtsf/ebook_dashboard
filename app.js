@@ -53,16 +53,18 @@ app.get('/details', function(req, res){
 });
 
 app.get('/search', function(req, res){
-  // res.send("search page: " + query);
-  console.log(req.query.searchTerm);
-
+  // console.log(req.query.searchTerm);
   var searchRequest = req.query.searchTerm;
-  var searchURL = "http://www.omdbapi.com/?s=" + searchRequest;
+  var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest;
+  console.log("search URL, ", searchURL);
   request(searchURL, function(error, response, body){
-    if (!error){
-      var data = JSON.parse(body); 
-      console.log("testing with omdb data ", data.Search);
-      res.render("test", {movieList: data.Search || []});
+    if (!error && response.statusCode == 200) {
+    console.log(body) // Print the google web page.
+    // console.log('error, ', error);
+    // if (!error){
+    //   var data = JSON.parse(body); 
+    //   console.log("testing with iTunes data ", data.Search);
+    //   res.render("test", {movieList: data.Search || []});
 
     }
   });
