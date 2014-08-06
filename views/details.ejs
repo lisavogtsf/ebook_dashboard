@@ -1,29 +1,25 @@
 <% include partials/header.ejs%>
+  <h1>Testing my Postgres database</h1>
+  <% ebooks.forEach(ebook) { %>
+    <%= ebook.title %>
+    <% } %>
 
-<h1>Details page test</h1>
-<!--     <form action="/search">
-      <input type="text" name="searchTerm" placeholder="Enter ISBN" autosave="search">
-      <input type="submit">
-    </form> -->
-<form class="form-horizontal" action="/search">
-  <fieldset>
-    <legend>Legend</legend>
-    <div class="form-group">
-      <label for="select" class="col-lg-2 control-label">Selects</label>
-      <div class="col-lg-10">
-        <select class="form-control" name="searchTerm">
-          <option>9781610843744</option>
-          <option>9781610845588</option>
-          <option>9781610846004</option>
-          <option>9781610848206</option>
-          <option>9781610848367</option>
-        </select><!-- close select -->
-      </div><!-- close div column -->
-      <div class="col-lg-10 col-lg-offset-2">
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </div> <!-- close submit button -->
-    </div><!-- close form group -->
-  </fieldset>
-</form>
-
+  <h1>Testing my API</h1>
+    <ul>
+      <!-- passed {movieList: body} -->
+      <li>ISBN: <%=searchRequest%></li>
+      <li>Title (trackName): <a href="<%= iTunesResults[0].trackViewUrl %>"> <%= iTunesResults[0].trackName %> </a></li>
+      <li>Author (artistName): <%= iTunesResults[0].artistName %></li>
+      <li><img src="<%=iTunesResults[0].artworkUrl100%>"></li>
+      <li>Description: <%=iTunesResults[0].description%></li>
+      <li>(No publisher/imprint information provided.)</li>
+      <li>Pricing:<ul>
+        <% var countries = ["United States", "Great Britain", "Australia", "Canada", "France", "Germany"]; %>
+        <% for (var i = 0; i < iTunesResults.length; i++) { %>
+        <li><%=countries[i]%>: <%=iTunesResults[i].formattedPrice%> <%=iTunesResults[i].currency%></li>
+          <% }%>
+        </ul>
+      </li>
+    </ul>
+  
 <% include partials/footer.ejs%>

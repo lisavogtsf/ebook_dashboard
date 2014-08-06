@@ -4,30 +4,30 @@
     <div class="jumbotron">
       <h1>Sign up</h1>
 
-      <form class="form-horizontal"> <!-- password and login forms -->
+      <form method="post" action="/submit"class="form-horizontal"> <!-- password and login forms -->
         <fieldset>
           <legend>Sign up for access to eBook dashboard</legend>
           <div class="form-group"> <!-- Username -->
-            <label for="inputUsername" class="col-lg-2 control-label">Username</label>
+            <label for="username" class="col-lg-2 control-label">Username</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="inputUsername" placeholder="Username" autocomplete="off" style="cursor: auto;">
+              <input type="text" class="form-control" id="username" name="username" placeholder="Username" autocomplete="off" style="cursor: auto;">
             </div>
           </div> <!-- closes Username -->
           <div class="form-group"> <!-- password -->
-            <label for="inputPassword" class="col-lg-2 control-label">Password</label>
+            <label for="password" class="col-lg-2 control-label">Password</label>
             <div class="col-lg-10">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password" autocomplete="off" style="cursor: auto;">
+              <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off" style="cursor: auto;">
             </div>
           </div> <!-- closes password -->
           <div class="form-group"> <!-- final submit and cancel buttons -->
             <div class="col-lg-10 col-lg-offset-2">
               <button class="btn btn-default">Cancel</button>
-              <button type="submit" class="btn btn-primary">Submit</button>
+              <button type="submit" value="Sign up!" class="btn btn-primary">Submit</button>
             </div> <!-- closes col lg 10 -->
           </div> <!-- closes form group -->
         </fieldset> <!-- closes fieldset -->
       </form> <!-- closes entire login form -->
-      <button type="button" id="signup" class="btn btn-success btn-lg btn-block">Already have an account? Log in here</button>      
+      <a href='login'>Already have an account? Log in here</a>  
     </div> <!--closes jumbotron-->
   </div> <!-- closes container -->
 

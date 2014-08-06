@@ -21,10 +21,10 @@ module.exports = function (sequelize, DataTypes){
         return hash;
     }, 
       comparePass: function(userpass, dbpass) {
-      // don't salt twice when you compare....watch out for this
+      // don't salt twice when you compare
         return bcrypt.compareSync((userpass), dbpass);  
     },
-      createNewUser:function(username, password, err, success ) {
+      createNewUser:function(username, password, err, success) {
         if(password.length < 6) {
           err({message: "Password should be more than six characters"});
         }
@@ -41,6 +41,7 @@ module.exports = function (sequelize, DataTypes){
               err({message: 'An account with that username already exists', username: username});
               }
           }).success(function(user) {
+            console.log("seems account was created, in createNewUser method");
             success({message: 'Account created, please log in now'});
           });
         }

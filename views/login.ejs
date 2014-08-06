@@ -3,19 +3,19 @@
     <div class="jumbotron">
       <h1>Login</h1>
 
-      <form class="form-horizontal"> <!-- password and login forms -->
+      <form method="post" action="/login" class="form-horizontal"> <!-- password and login forms -->
         <fieldset>
           <legend>Login to eBook dashboard</legend>
           <div class="form-group"> <!-- Username -->
             <label for="inputUsername" class="col-lg-2 control-label">Username</label>
             <div class="col-lg-10">
-              <input type="text" class="form-control" id="inputUsername" placeholder="Username" autocomplete="off" style="cursor: auto;">
+              <input type="text" class="form-control" name="username" id="inputUsername" placeholder="Username" autocomplete="off" style="cursor: auto;">
             </div>
           </div> <!-- closes Username -->
           <div class="form-group"> <!-- password -->
             <label for="inputPassword" class="col-lg-2 control-label">Password</label>
             <div class="col-lg-10">
-              <input type="password" class="form-control" id="inputPassword" placeholder="Password" autocomplete="off" style="cursor: auto;">
+              <input type="password" class="form-control" name="password" id="inputPassword" placeholder="Password" autocomplete="off" style="cursor: auto;">
             </div>
           </div> <!-- closes password -->
           <div class="form-group"> <!-- final submit and cancel buttons -->
@@ -25,8 +25,8 @@
             </div> <!-- closes col lg 10 -->
           </div> <!-- closes form group -->
         </fieldset> <!-- closes fieldset -->
-      </form> <!-- closes entire login form -->
-      <button type="button" id="signup" class="btn btn-danger btn-lg btn-block">Need an account? Sign up for one here</button>      
+      </form> <!-- closes entire login form --> 
+      <a href='/signup'> Need an account? Sign up for one here</a>
     </div> <!--closes jumbotron-->
   </div> <!-- closes container -->
 <% include partials/footer.ejs%>

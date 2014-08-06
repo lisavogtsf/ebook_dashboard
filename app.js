@@ -29,29 +29,91 @@ app.use(cookieSession({
   maxage: 360000
   })
 );
+// get passport started
+app.use(passport.initialize());
+app.use(passport.session());
+app.use(flash());
+
 
 // set up passport serializer
+passport.serializeUser(function(user, done){
+  console.log("SERIALIZED JUST RAN");
+  done(null, user.id);
+})
 
 // set up passport deserializer
+passport.deserializeUser(function(id, done){
+  console.log("DESERIALIZED RAN JUST NOW");
+  db.user.find({
+    where: {
+      id: id
+    }
+  })
+  .done(function(error, user){
+    done(error, user);
+  });
+});
 
-// set up routes
 
-// set up root route, redirect to login
+// set up root route, check if user is logged in
+// redirect to home or login
 app.get('/', function(req, res){
-  res.redirect('/login');
-  console.log("redirecting to login");
+  if(!req.user) {
+    res.render('login');
+  } else {
+    res.redirect('/home');  
+  }
 });
 
 // set up login route, will change with passport
 app.get('/login', function(req, res){
-  res.render('login');
-  console.log("req.body ", req.body);
-  // console.log('LOGIN PAGE SHOULD BE WORKING');
+  console.log("before checking req.user:", req.user);
+  if (!req.user) {
+    res.render('login', {message: req.flash('loginMessage'), username: ""});
+  } else {
+    res.redirect('home');
+  }
+  // res.render('login');
+  // console.log("req.body ", req.body);
+  // // console.log('LOGIN PAGE SHOULD BE WORKING');
 });
 
 // set up signup route, will change with passport
 app.get('/signup', function(req, res){
-  res.render('signup');
+  if(!req.user) {
+    res.render("signup", { username: ""});
+  } else {
+    res.redirect('/home');
+  }
+});
+
+app.get('/home', function(req, res){
+  res.render('home', {
+    isAuthenticated: req.isAuthenticated(),
+    user: req.user
+  });
+});
+
+app.post('/submit', function(req, res){
+  console.log('after signup, req ', req);
+  db.user.createNewUser(req.body.username, req.body.password,
+    function(err){
+      res.render('signup', {message: err.message, username: req.body.username});
+    },
+    function(success){
+      res.render('home', {message: success.message});
+    });
+});
+//authenticate users when logging in
+app.post('/login', passport.authenticate('local', {
+  successRedirect: '/home',
+  failureRedirect: '/login',
+  failureFlash: true
+}));
+
+app.get('/logout', function(req, res){
+  req.logout();
+  res.redirect('/');
 });
 
 // set up signup route, will change with passport
@@ -61,8 +123,15 @@ app.get('/details', function(req, res){
 
 // works but I want to try for multiple prices
 app.get('/search', function(req, res){
-  // UK pricing
+
+
   async.parallel([
+    function(done){
+      db.ebook.findAll().success(function(ebooks){
+        done(null, ebooks);
+      });
+    },
+    // US pricing
     function(done){
     var searchRequest = req.query.searchTerm;
     var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=us";
@@ -147,9 +216,10 @@ app.get('/search', function(req, res){
       });
     }
   ], function(err, iTunesResults){
-      res.render("test", {
+      res.render("details", {
         iTunesResults: iTunesResults,
-        searchRequest: req.query.searchTerm
+        searchRequest: req.query.searchTerm,
+        ebooks: ebooks
       });
   })
 
