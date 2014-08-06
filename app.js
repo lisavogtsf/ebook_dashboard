@@ -121,16 +121,17 @@ app.get('/details', function(req, res){
   res.render('details');
 });
 
-// works but I want to try for multiple prices
+// works 
 app.get('/search', function(req, res){
 
-
-  async.parallel([
-    function(done){
+  
+    
       db.ebook.findAll().success(function(ebooks){
-        done(null, ebooks);
-      });
-    },
+        console.log("THESE ARE OUR EBOOKS!")
+        
+        
+      
+    async.parallel([  
     // US pricing
     function(done){
     var searchRequest = req.query.searchTerm;
@@ -222,7 +223,7 @@ app.get('/search', function(req, res){
         ebooks: ebooks
       });
   })
-
+});
 
 });
 
