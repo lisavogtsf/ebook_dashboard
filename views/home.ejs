@@ -1,8 +1,33 @@
 <% include partials/header.ejs%>
 
-<h1>HOME</h1>
-<h2>you should be logged in to see this</h2>
-<h2>This is user: <%= user%></h2>
+<h2>(you should be logged in to see this)</h2>
+
+<h1>Home/Details page test</h1>
+<!--     <form action="/search">
+      <input type="text" name="searchTerm" placeholder="Enter ISBN" autosave="search">
+      <input type="submit">
+    </form> -->
+<form class="form-horizontal" action="/search">
+  <fieldset>
+    <legend>Search</legend>
+    <div class="form-group">
+      <label for="select" class="col-lg-2 control-label">Search by ISBN</label>
+      <div class="col-lg-10">
+        <select class="form-control" name="searchTerm">
+          <option>9781610843744</option>
+          <option>9781610845588</option>
+          <option>9781610846004</option>
+          <option>9781610848206</option>
+          <option>9781610848367</option>
+        </select><!-- close select -->
+      </div><!-- close div column -->
+      <div class="col-lg-10 col-lg-offset-2">
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div> <!-- close submit button -->
+    </div><!-- close form group -->
+  </fieldset>
+</form>
+
 
 <a href="/logout" class = "btn btn-danger btn-lg">Log out here</a>
 
