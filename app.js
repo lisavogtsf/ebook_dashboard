@@ -67,6 +67,7 @@ app.get('/', function(req, res){
 
 // set up login route, will change with passport
 app.get('/login', function(req, res){
+  console.log("before checking req.user:", req.user);
   if (!req.user) {
     res.render('login', {message: req.flash('loginMessage'), username: ""});
   } else {
@@ -95,9 +96,6 @@ app.get('/home', function(req, res){
 
 app.post('/submit', function(req, res){
   console.log('after signup, req ', req);
-  // console.log('after signup, req.body ', req.body);
-  // console.log('after signup,' req.body.username);
-  // console.log('after signup,' req.body.password);
   db.user.createNewUser(req.body.username, req.body.password,
     function(err){
       res.render('signup', {message: err.message, username: req.body.username});
