@@ -123,8 +123,15 @@ app.get('/details', function(req, res){
 
 // works but I want to try for multiple prices
 app.get('/search', function(req, res){
-  // UK pricing
+
+
   async.parallel([
+    function(done){
+      db.ebook.findAll().success(function(ebooks){
+        done(null, ebooks);
+      });
+    },
+    // US pricing
     function(done){
     var searchRequest = req.query.searchTerm;
     var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=us";
@@ -209,9 +216,10 @@ app.get('/search', function(req, res){
       });
     }
   ], function(err, iTunesResults){
-      res.render("test", {
+      res.render("details", {
         iTunesResults: iTunesResults,
-        searchRequest: req.query.searchTerm
+        searchRequest: req.query.searchTerm,
+        ebooks: ebooks
       });
   })
 
