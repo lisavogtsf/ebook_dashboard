@@ -1,8 +1,18 @@
 <% include partials/header.ejs%>
   <h1>Testing my Postgres database</h1>
-  <% ebooks.forEach(ebook) { %>
-    <%= ebook.title %>
-    <% } %>
+
+  <% ebooks.forEach(function(ebook) { %>
+    <p>
+      <% if (ebook.isbn === searchRequest) { %>
+      <%= ebook.isbn %>
+      <% } %>
+    </p>
+
+
+
+
+
+    <% }) %>
 
   <h1>Testing my API</h1>
     <ul>
