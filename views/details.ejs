@@ -1,6 +1,10 @@
 <% include partials/header.ejs%>
 <div class="container"> 
   <div class="jumbotron"> 
+  <ul class="nav nav-tabs" style="margin-bottom: 15px;">
+  <li><a href="/home" data-toggle="tab">Home</a></li>
+  <li><a href="/logout" data-toggle="tab">Logout</a></li>
+</ul>
     <div class="row">
       <div class="col-xs-12">
         <h2>eBook Dashboard, ISBN: <%=searchRequest%></h2>
@@ -12,9 +16,9 @@
         
           <li class="list-group-item">title: <%= ebook.title %></li>
           <li class="list-group-item">author: <%= author.displayName %></li>
-          <li class="list-group-item"><img src="<%=ebook.coverImgUrl%>" height="100" width="75"></li>
+          <li class="list-group-item"><a href="<%=ebook.ebookUrl%>"><img src="<%=ebook.coverImgUrl%>" height="100" width="75"></a></li>
           <li class="list-group-item"><small>description: <%= ebook.description %></small></li>
-          <li class="list-group-item">Price: <a href="ebook.ebookUrl">$<%= ebook.price %>.00</a> <br>
+          <li class="list-group-item">Price: <a href="<%=ebook.ebookUrl%>">$<%= ebook.price %>.00</a> <br>
           Click price to view on publisher website</li>
         </ul> 
 
@@ -28,7 +32,7 @@
         
           <li class="list-group-item">trackName: <%= iTunesResults[0].trackName %></li>
           <li class="list-group-item">artistName: <%= iTunesResults[0].artistName %></li>
-          <li class="list-group-item"><img src="<%=iTunesResults[0].artworkUrl100%>"></li>
+          <li class="list-group-item"><a href="<%= iTunesResults[0].trackViewUrl %>"><img src="<%=iTunesResults[0].artworkUrl100%>"></a></li>
           <li class="list-group-item"><small>description: <%=iTunesResults[0].description%></small></li>
           <li class="list-group-item">Pricing:
             <ul>
