@@ -5,6 +5,7 @@
       <% if (ebook.isbn === searchRequest) { %>
       <ul>
         <li><h2>Title: <%= ebook.title %></h2></li>
+        <% var ebookAuthorId = ebook.author_id %>
         <li>Author: <%= ebook.author_id %></li>
         <li>ISBN: <%= ebook.isbn %></li>
         <li><img src="<%=ebook.coverImgUrl%>" height="200" width="175"></li>

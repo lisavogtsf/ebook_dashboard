@@ -1,10 +1,9 @@
 // author.js
 module.exports = function (sequelize, DataTypes){
   var Author = sequelize.define('author', {
-    displayname: {
+    displayName: {
         type: DataTypes.STRING,
-        unique: true,
-        allowNull: false
+        unique: true
     }
   },
   {

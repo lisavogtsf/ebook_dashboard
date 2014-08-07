@@ -122,12 +122,19 @@ app.get('/details', function(req, res){
   res.render('details');
 });
 
+
+
 // works to get all prices
 app.get('/search', function(req, res){  
 
-    db.ebook.findAll().success(function(ebooks){
-      console.log("THESE ARE OUR EBOOKS!");
-      console.log(typeof ebook);
+  db.ebook.findAll().success(function(ebooks){
+    console.log("THESE ARE OUR EBOOKS!");
+    console.log(typeof ebook);
+  // db.author.find()
+
+  db.author.findAll().complete(function(err, authors){
+    console.log("these are the authors, ", authors);
+
           
     async.parallel([  
     // US pricing
@@ -220,10 +227,11 @@ app.get('/search', function(req, res){
       res.render("details", {
         iTunesResults: iTunesResults,
         searchRequest: req.query.searchTerm,
-        // authors: authors,
+        authors: authors,
         ebooks: ebooks
       });
     });
+   });
   });
 });
 
