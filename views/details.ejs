@@ -1,19 +1,14 @@
 <% include partials/header.ejs%>
   <h1>From local Postgres database</h1>
 
-  <% ebooks.forEach(function(ebook) { %>
-      <% if (ebook.isbn === searchRequest) { %>
-      <ul>
-        <li><h2>Title: <%= ebook.title %></h2></li>
-        <% var ebookAuthorId = ebook.author_id %>
-        <li>Author: <%= ebook.author_id %></li>
-        <li>ISBN: <%= ebook.isbn %></li>
-        <li><img src="<%=ebook.coverImgUrl%>" height="200" width="175"></li>
-        <li>Description: <%= ebook.description %></li>
-        <li>Pricing: $<%= ebook.price %>.00</li>
-      </ul>  
-      <% } %>
-    <% }) %>
+    <ul>
+      <li><h2>Title: <%= ebook.title %></h2></li>
+      <li>Author: <%= author.displayName %></li>
+      <li>ISBN: <%= ebook.isbn %></li>
+      <li><img src="<%=ebook.coverImgUrl%>" height="200" width="175"></li>
+      <li>Description: <%= ebook.description %></li>
+      <li>Pricing: $<%= ebook.price %>.00</li>
+    </ul>  
 
   <h1>From the Apple iTunes Store API</h1>
     <ul>

@@ -125,21 +125,22 @@ app.get('/details', function(req, res){
 
 
 // works to get all prices
-app.get('/search', function(req, res){  
+app.get('/search', function(req, res){
 
-  db.ebook.findAll().success(function(ebooks){
+  var searchRequest = req.query.searchTerm;
+
+  db.ebook.find({where: {isbn: searchRequest}}).success(function(ebook){
     console.log("THESE ARE OUR EBOOKS!");
     console.log(typeof ebook);
   // db.author.find()
 
-  db.author.findAll().complete(function(err, authors){
-    console.log("these are the authors, ", authors);
+  // db.author.findAll().complete(function(err, authors){
+  //   console.log("these are the authors, ", authors);
 
           
     async.parallel([  
     // US pricing
     function(done){
-    var searchRequest = req.query.searchTerm;
     var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest + "&country=us";
     request(searchURL, function(error, response, body){
       if (!error && response.statusCode == 200) {
@@ -224,15 +225,16 @@ app.get('/search', function(req, res){
   ],function(err, iTunesResults){
 
     // console.log("ebooks,", ebooks);
+    ebook.getAuthor().success(function (writer) {
       res.render("details", {
         iTunesResults: iTunesResults,
         searchRequest: req.query.searchTerm,
-        authors: authors,
-        ebooks: ebooks
+        author: writer,
+        ebook: ebook
       });
     });
-   });
   });
+});
 });
 
 // For any incorrect URL routes 
