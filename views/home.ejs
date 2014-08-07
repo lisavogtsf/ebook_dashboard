@@ -12,12 +12,9 @@
       <label for="select" class="col-lg-2 control-label">Search by ISBN</label>
       <div class="col-lg-10">
         <select class="form-control" name="searchTerm">
-          <option>9781610848367</option>
-          <option>9781610847773</option>
-          <option>9781610847834</option>
-          <option>9781610848121</option>
-          <option>9781610846530</option>
-          <option>9781610843690</option>
+          <% ebooks.forEach(function(ebook){ %>
+            <option><%= ebook.isbn %></option>
+          <% }) %>
         </select><!-- close select -->
       </div><!-- close div column -->
       <div class="col-lg-10 col-lg-offset-2">

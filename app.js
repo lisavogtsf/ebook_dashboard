@@ -54,7 +54,6 @@ passport.deserializeUser(function(id, done){
   });
 });
 
-
 // set up root route, check if user is logged in
 // redirect to home or login
 app.get('/', function(req, res){
@@ -88,9 +87,12 @@ app.get('/signup', function(req, res){
 });
 
 app.get('/home', function(req, res){
-  res.render('home', {
-    isAuthenticated: req.isAuthenticated(),
-    user: req.user
+  db.ebook.findAll().success(function(ebooks){
+    res.render('home', {
+      isAuthenticated: req.isAuthenticated(),
+      user: req.user,
+      ebooks: ebooks
+    });
   });
 });
 
