@@ -2,6 +2,11 @@
   <div class="container">
     <div class="jumbotron">
       <h1>Login</h1>
+      <% if (typeof message !== 'undefined') { %>
+        <p style = "color:red;">
+        <%= message %>
+        </p>
+      <% } %>
 
       <form method="post" action="/login" class="form-horizontal"> <!-- password and login forms -->
         <fieldset>

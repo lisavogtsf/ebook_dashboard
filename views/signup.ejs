@@ -3,6 +3,11 @@
   <div class="container">
     <div class="jumbotron">
       <h1>Sign up</h1>
+      <% if(typeof message !== 'undefined') {%>
+        <div class="alert alert-danger">
+        <%= message %>
+        </div>
+        <% }%>
 
       <form method="post" action="/submit"class="form-horizontal"> <!-- password and login forms -->
         <fieldset>
