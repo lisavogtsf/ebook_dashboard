@@ -109,16 +109,16 @@ app.post('/submit', function(req, res){
     });
 });
 
-// results route, maybe just for testing
-app.get('/results', function(req, res){
-  if(!req.user) {
-    res.render('login');
-  } else {
-    db.ebook.findAll().success(function(ebooks){
-      res.render('results', {ebooks: ebooks});
-    });  
-  }
-});
+// // results route, maybe just for testing
+// app.get('/results', function(req, res){
+//   if(!req.user) {
+//     res.render('login');
+//   } else {
+//     db.ebook.findAll().success(function(ebooks){
+//       res.render('results', {ebooks: ebooks});
+//     });  
+//   }
+// });
 
 //authenticate users when logging in
 app.post('/login', passport.authenticate('local', {
@@ -133,8 +133,6 @@ app.get('/logout', function(req, res){
 });
 
 
-
-
 // works to get all prices
 app.get('/search', function(req, res){
 
@@ -143,11 +141,6 @@ app.get('/search', function(req, res){
   db.ebook.find({where: {isbn: searchRequest}}).success(function(ebook){
     console.log("THESE ARE OUR EBOOKS!");
     console.log(typeof ebook);
-  // db.author.find()
-
-  // db.author.findAll().complete(function(err, authors){
-  //   console.log("these are the authors, ", authors);
-
           
     async.parallel([  
     // US pricing

@@ -1,0 +1,30 @@
+<% include partials/header.ejs%>
+  <h1>From local Postgres database</h1>
+
+    <ul>
+      <li><h2>Title: <%= ebook.title %></h2></li>
+      <li>Author: <%= author.displayName %></li>
+      <li>ISBN: <%= ebook.isbn %></li>
+      <li><img src="<%=ebook.coverImgUrl%>" height="200" width="175"></li>
+      <li>Description: <%= ebook.description %></li>
+      <li>Pricing: $<%= ebook.price %>.00</li>
+    </ul>  
+
+  <h1>From the Apple iTunes Store API</h1>
+    <ul>
+      <!-- passed {searchRequest, ebooks, iTunesResults} -->
+      <li><h2>Title (trackName): <a href="<%= iTunesResults[0].trackViewUrl %>"> <%= iTunesResults[0].trackName %> </a></h2></li>
+      <li>Author (artistName): <%= iTunesResults[0].artistName %></li>
+      <li>ISBN: <%=searchRequest%></li>
+      <li><img src="<%=iTunesResults[0].artworkUrl100%>"></li>
+      <li>Description: <%=iTunesResults[0].description%></li>
+      <li>Pricing:<ul>
+        <% var countries = ["United States", "Great Britain", "Australia", "Canada", "France", "Germany"]; %>
+        <% for (var i = 0; i < iTunesResults.length; i++) { %>
+        <li><a href="<%= iTunesResults[i].trackViewUrl %>"><%=countries[i]%>: <%=iTunesResults[i].formattedPrice%> <%=iTunesResults[i].currency%></a></li>
+          <% }%>
+        </ul>
+      </li>
+    </ul>
+  
+<% include partials/footer.ejs%>
