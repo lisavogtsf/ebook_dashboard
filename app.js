@@ -39,7 +39,7 @@ app.use(flash());
 passport.serializeUser(function(user, done){
   console.log("SERIALIZED JUST RAN");
   done(null, user.id);
-})
+});
 
 // set up passport deserializer
 passport.deserializeUser(function(id, done){
@@ -104,6 +104,7 @@ app.post('/submit', function(req, res){
       res.render('home', {message: success.message});
     });
 });
+
 //authenticate users when logging in
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/home',
@@ -121,16 +122,20 @@ app.get('/details', function(req, res){
   res.render('details');
 });
 
-// works 
-app.get('/search', function(req, res){
 
-  
-    
-      db.ebook.findAll().success(function(ebooks){
-        console.log("THESE ARE OUR EBOOKS!")
-        
-        
-      
+
+// works to get all prices
+app.get('/search', function(req, res){  
+
+  db.ebook.findAll().success(function(ebooks){
+    console.log("THESE ARE OUR EBOOKS!");
+    console.log(typeof ebook);
+  // db.author.find()
+
+  db.author.findAll().complete(function(err, authors){
+    console.log("these are the authors, ", authors);
+
+          
     async.parallel([  
     // US pricing
     function(done){
@@ -141,7 +146,7 @@ app.get('/search', function(req, res){
         // console.log(body) 
         var data = JSON.parse(body);
         // below shows whole object of result 0
-        console.log(data.results[0]);
+        // console.log(data.results[0]);
         done(null, data.results[0]);
       }
     });
@@ -155,7 +160,7 @@ app.get('/search', function(req, res){
           // console.log(body) 
           var data = JSON.parse(body);
           // below shows whole object of result 0
-          console.log(data.results[0]);
+          // console.log(data.results[0]);
           done(null, data.results[0]);
         }
       });
@@ -169,7 +174,7 @@ app.get('/search', function(req, res){
           // console.log(body) 
           var data = JSON.parse(body);
           // below shows whole object of result 0
-          console.log(data.results[0]);
+          // console.log(data.results[0]);
           done(null, data.results[0]);
         }
       });
@@ -183,7 +188,7 @@ app.get('/search', function(req, res){
           // console.log(body) 
           var data = JSON.parse(body);
           // below shows whole object of result 0
-          console.log(data.results[0]);
+          // console.log(data.results[0]);
           done(null, data.results[0]);
         }
       });
@@ -197,7 +202,7 @@ app.get('/search', function(req, res){
           // console.log(body) 
           var data = JSON.parse(body);
           // below shows whole object of result 0
-          console.log(data.results[0]);
+          // console.log(data.results[0]);
           done(null, data.results[0]);
         }
       });
@@ -211,24 +216,24 @@ app.get('/search', function(req, res){
           // console.log(body) 
           var data = JSON.parse(body);
           // below shows whole object of result 0
-          console.log(data.results[0]);
+          // console.log(data.results[0]);
           done(null, data.results[0]);
         }
       });
     }
-  ], function(err, iTunesResults){
+  ],function(err, iTunesResults){
+
+    // console.log("ebooks,", ebooks);
       res.render("details", {
         iTunesResults: iTunesResults,
         searchRequest: req.query.searchTerm,
+        authors: authors,
         ebooks: ebooks
       });
-  })
+    });
+   });
+  });
 });
-
-});
-
-
-
 
 // For any incorrect URL routes 
 app.get('/*', function(req,res){
