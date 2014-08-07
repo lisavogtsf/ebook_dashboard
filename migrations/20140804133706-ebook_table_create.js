@@ -18,7 +18,6 @@ module.exports = {
       ebookUrl: DataTypes.STRING,
       coverImgUrl: DataTypes.STRING,
       description: DataTypes.TEXT,
-      // what data type should I use? Float? Decimal?
       price: DataTypes.FLOAT,
       priceCategory: DataTypes.STRING
     })

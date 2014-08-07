@@ -10,7 +10,7 @@ module.exports = function (sequelize, DataTypes){
     ebookUrl: DataTypes.STRING,
     coverImgUrl: DataTypes.STRING,
     description: DataTypes.TEXT,
-    price: DataTypes.DECIMAL(10,2),
+    price: DataTypes.FLOAT,
     priceCategory: DataTypes.STRING
   },
   {
