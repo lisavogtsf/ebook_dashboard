@@ -64,6 +64,8 @@ app.get('/', function(req, res){
   }
 });
 
+
+
 // set up login route, will change with passport
 app.get('/login', function(req, res){
   console.log("before checking req.user:", req.user);
@@ -107,6 +109,17 @@ app.post('/submit', function(req, res){
     });
 });
 
+// results route, maybe just for testing
+app.get('/results', function(req, res){
+  if(!req.user) {
+    res.render('login');
+  } else {
+    db.ebook.findAll().success(function(ebooks){
+      res.render('results', {ebooks: ebooks});
+    });  
+  }
+});
+
 //authenticate users when logging in
 app.post('/login', passport.authenticate('local', {
   successRedirect: '/home',
@@ -119,10 +132,6 @@ app.get('/logout', function(req, res){
   res.redirect('/');
 });
 
-// set up signup route, will change with passport
-app.get('/details', function(req, res){
-  res.render('details');
-});
 
 
 
