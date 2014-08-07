@@ -10,8 +10,7 @@ module.exports = function (sequelize, DataTypes){
     ebookUrl: DataTypes.STRING,
     coverImgUrl: DataTypes.STRING,
     description: DataTypes.TEXT,
-    // what data type should I use? Float? Decimal?
-    price: DataTypes.FLOAT,
+    price: DataTypes.DECIMAL(10,2),
     priceCategory: DataTypes.STRING
   },
   {
@@ -20,9 +19,9 @@ module.exports = function (sequelize, DataTypes){
         Ebook.belongsTo(db.author);
       }
     }
-  }) 
+  });
   return Ebook;
-}
+};
 
 // not this?
 // module.exports = Ebook;
