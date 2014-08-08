@@ -64,8 +64,6 @@ app.get('/', function(req, res){
   }
 });
 
-
-
 // set up login route, will change with passport
 app.get('/login', function(req, res){
   console.log("before checking req.user:", req.user);
@@ -74,9 +72,6 @@ app.get('/login', function(req, res){
   } else {
     res.redirect('home');
   }
-  // res.render('login');
-  // console.log("req.body ", req.body);
-  // // console.log('LOGIN PAGE SHOULD BE WORKING');
 });
 
 // set up signup route, will change with passport
@@ -84,10 +79,11 @@ app.get('/signup', function(req, res){
   if(!req.user) {
     res.render("signup", { username: ""});
   } else {
-    res.redirect('/home');
+    res.redirect('home');
   }
 });
 
+// route to login home
 app.get('/home', function(req, res){
   db.ebook.findAll().success(function(ebooks){
     res.render('home', {
@@ -99,13 +95,17 @@ app.get('/home', function(req, res){
 });
 
 app.post('/submit', function(req, res){
-  console.log('after signup, req ', req);
+  // error happens shortly after this
+  console.log('******after signup, req ', req);
   db.user.createNewUser(req.body.username, req.body.password,
     function(err){
       res.render('signup', {message: err.message, username: req.body.username});
     },
     function(success){
-      res.render('home', {message: success.message});
+      // error
+      // express deprecated res.redirect(ur, status): Use res.redirect(status, url) instead app.js:107:11
+      // express deprecated res.redirect(ur, status): Use res.redirect(status, url) instead app.js:105:11
+      res.redirect('home');
     });
 });
 
