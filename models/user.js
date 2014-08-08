@@ -33,7 +33,8 @@ module.exports = function (sequelize, DataTypes){
             username: username,
             password: this.encryptPass(password)
           }).error(function(error) {
-            console.log(error);
+            console.log("error log shows up here");
+            // console.log(error);
             if(error.username){
               err({message: 'Your username should be at least 6 characters long', username: username});
             }
@@ -41,7 +42,7 @@ module.exports = function (sequelize, DataTypes){
               err({message: 'An account with that username already exists', username: username});
               }
           }).success(function(user) {
-            console.log("seems account was created, in createNewUser method");
+            console.log("A new account was created, in createNewUser method, using signup");
             success({message: 'Account created, please log in now'});
           });
         }

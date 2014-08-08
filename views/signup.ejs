@@ -1,31 +1,32 @@
 <% include partials/header.ejs%>
-
-  <div class="container">
-    <div class="jumbotron">
-      <h1>Sign up</h1>
-      <% if(typeof message !== 'undefined') {%>
-        <div class="alert alert-danger">
-        <%= message %>
-        </div>
-        <% }%>
-
-      <form method="post" action="/submit"class="form-horizontal"> <!-- password and login forms -->
+<div class="container">
+  <div class="well well-med">
+    <div class="row">
+      <div class="col-md-2"></div>
+        <div class="col-md-8"><!-- big column with text -->
+          <h1>Sign up</h1>
+          <% if(typeof message !== 'undefined') {%>
+            <div class="alert alert-danger">
+            <%= message %>
+            </div>
+          <% }%>
+      <form method="post" action="/submit" class="form-horizontal"> <!-- password and login forms -->
         <fieldset>
           <legend>Sign up for access to eBook dashboard</legend>
           <div class="form-group"> <!-- Username -->
-            <label for="username" class="col-lg-2 control-label">Username</label>
-            <div class="col-lg-10">
+            <label for="username" class="col-sm-2 control-label">Username</label>
+            <div class="col-sm-4">
               <input type="text" class="form-control" id="username" name="username" placeholder="Username" autocomplete="off" style="cursor: auto;">
             </div>
           </div> <!-- closes Username -->
           <div class="form-group"> <!-- password -->
-            <label for="password" class="col-lg-2 control-label">Password</label>
-            <div class="col-lg-10">
+            <label for="password" class="col-sm-2 control-label">Password</label>
+            <div class="col-sm-4">
               <input type="password" class="form-control" id="password" name="password" placeholder="Password" autocomplete="off" style="cursor: auto;">
             </div>
           </div> <!-- closes password -->
           <div class="form-group"> <!-- final submit and cancel buttons -->
-            <div class="col-lg-10 col-lg-offset-2">
+            <div class="col-sm-4 col-lg-offset-2">
               <button class="btn btn-default">Cancel</button>
               <button type="submit" value="Sign up!" class="btn btn-primary">Submit</button>
             </div> <!-- closes col lg 10 -->
@@ -33,8 +34,8 @@
         </fieldset> <!-- closes fieldset -->
       </form> <!-- closes entire login form -->
       <a href='login'>Already have an account? Log in here</a>  
-    </div> <!--closes jumbotron-->
-  </div> <!-- closes container -->
+  </div> <!--closes jumbotron-->
+</div> <!-- closes container -->
 
 
 
