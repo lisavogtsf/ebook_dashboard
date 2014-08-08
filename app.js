@@ -66,7 +66,7 @@ app.get('/', function(req, res){
 
 // set up login route, will change with passport
 app.get('/login', function(req, res){
-  console.log("before checking req.user:", req.user);
+  // console.log("before checking req.user:", req.user);
   if (!req.user) {
     res.render('login', {message: req.flash('loginMessage'), username: ""});
   } else {
@@ -96,7 +96,7 @@ app.get('/home', function(req, res){
 
 app.post('/submit', function(req, res){
   // error happens shortly after this
-  console.log('******after signup, req ', req);
+  // console.log('******after signup, req ', req);
   db.user.createNewUser(req.body.username, req.body.password,
     function(err){
       res.render('signup', {message: err.message, username: req.body.username});
@@ -139,8 +139,8 @@ app.get('/search', function(req, res){
   var searchRequest = req.query.searchTerm;
 
   db.ebook.find({where: {isbn: searchRequest}}).success(function(ebook){
-    console.log("THESE ARE OUR EBOOKS!");
-    console.log(typeof ebook);
+    // console.log("THESE ARE OUR EBOOKS!");
+    // console.log(typeof ebook);
           
     async.parallel([  
     // US pricing
