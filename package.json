@@ -4,7 +4,7 @@
   "description": "First attempt at WDI project 1",
   "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha --recursive --reporter spec"
   },
   "author": "Lisa Vogt",
   "license": "ISC",
@@ -27,6 +27,9 @@
     "sequelize": "^1.7.9",
     "sequelize-cli": "^0.2.3",
     "xml2js": "^0.4.4"
+  },
+  "devDependencies": {
+    "mocha": "^1.21.4",
+    "supertest": "^0.13.0"
   }
-
 }

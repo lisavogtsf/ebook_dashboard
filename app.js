@@ -253,3 +253,5 @@ app.get('/*', function(req,res){
 app.listen((process.env.PORT || 3000), function(){
   console.log("We only care about port 3000. How does that make the other ports feel?");  
 });
+
+module.exports = app;
