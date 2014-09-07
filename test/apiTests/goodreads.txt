@@ -1,0 +1,13 @@
+key: gQ8Ee1bJbfxTaNLwAJhiww
+
+curl https://www.goodreads.com/search.xml?key=gQ8Ee1bJbfxTaNLwAJhiww&q=Treason
+
+
+
+
+
+http://www.goodreads.com/book/show/ID_OF_BOOK
+
+http://www.goodreads.com/genre/GENRE_NAME
+
+http://www.codeproject.com/Articles/472061/Goodreads-API-Tutorial

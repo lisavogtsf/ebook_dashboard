@@ -1,0 +1,59 @@
+Sample:
+Query, http://itunes.apple.com/lookup?isbn=9780316069359
+Link, http://itunes.apple.com/<country abbreviation>/book/isbn<isbn number>
+http://itunes.apple.com/us/book/isbn9780316069359
+
+US
+http://itunes.apple.com/lookup?isbn=9781610843744
+
+Great Britain
+http://itunes.apple.com/lookup?isbn=9781610843744&country=gb
+
+
+{
+resultCount: 1,
+results: [
+{
+artistId: 419410576,
+artistName: "Kate Allan",
+kind: "ebook",
+price: 2.99,
+description: "<b>Isabella Oakley is travelling to London for the Season when her aunt is taken ill en-route. Luckily she meets Anthony Davenport and his sister who escort her in their private coach. But in London she is followed by the mysterious Mr Montcalm, whom Anthony warns her away from. And Anthony&apos;s sister seems to be plotting against her, too. Regency Romance Novella by Kate Allan; originally published by D C Thomson (England)</b><b> <br /> </b>",
+currency: "USD",
+genres: [
+"Historical",
+"Books",
+"Romance"
+],
+genreIds: [
+"10059",
+"38",
+"9003"
+],
+releaseDate: "2006-01-01T08:00:00Z",
+trackId: 419411241,
+trackName: "The Restless Heart (Regency Romance Novella)",
+formattedPrice: "$2.99",
+artistIds: [
+419410576
+],
+artworkUrl60: "http://a1.mzstatic.com/us/r30/Publication/fe/69/ec/mzi.qbiwafpb.60x60-50.jpg",
+artistViewUrl: "https://itunes.apple.com/us/artist/kate-allan/id419410576?mt=11&uo=4",
+trackCensoredName: "The Restless Heart (Regency Romance Novella)",
+fileSizeBytes: 1002621,
+artworkUrl100: "http://a2.mzstatic.com/us/r30/Publication/fe/69/ec/mzi.qbiwafpb.100x100-75.jpg",
+trackViewUrl: "https://itunes.apple.com/us/book/restless-heart-regency-romance/id419411241?mt=11&uo=4"
+}
+]
+}
+
+
+
+using 
+curl http://itunes.apple.com/lookup?isbn=9781610843744&country=gb
+{
+ "resultCount":1,
+ "results": [
+{"artistId":419410576, "artistName":"Kate Allan", "kind":"ebook", "price":2.99, 
+"description":"<b>Isabella Oakley is travelling to London for the Season when her aunt is taken ill en-route. Luckily she meets Anthony Davenport and his sister who escort her in their private coach. But in London she is followed by the mysterious Mr Montcalm, whom Anthony warns her away from. And Anthony&apos;s sister seems to be plotting against her, too. Regency Romance Novella by Kate Allan; originally published by D C Thomson (England)<\/b><b> <br />\n<\/b>", "currency":"USD", "genres":["Historical", "Books", "Romance"], "genreIds":["10059", "38", "9003"], "releaseDate":"2006-01-01T08:00:00Z", "trackId":419411241, "trackName":"The Restless Heart (Regency Romance Novella)", "formattedPrice":"$2.99", "artistIds":[419410576], "trackCensoredName":"The Restless Heart (Regency Romance Novella)", "artistViewUrl":"https://itunes.apple.com/us/artist/kate-allan/id419410576?mt=11&uo=4", "trackViewUrl":"https://itunes.apple.com/us/book/restless-heart-regency-romance/id419411241?mt=11&uo=4", "artworkUrl60":"http://a1.mzstatic.com/us/r30/Publication/fe/69/ec/mzi.qbiwafpb.60x60-50.jpg", "artworkUrl100":"http://a2.mzstatic.com/us/r30/Publication/fe/69/ec/mzi.qbiwafpb.100x100-75.jpg", "fileSizeBytes":1002621}]
+}

@@ -1,0 +1,6 @@
+error
+
+/Users/lisavogtsf/repos/projects_wdi/firstProjectWDI/models/ebook.js:6
+      type: DataTypes.STRING,
+            ^
+ReferenceError: DataTypes is not defined

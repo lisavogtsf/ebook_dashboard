@@ -1,0 +1,5 @@
+scribd.txt
+
+curl "api.scribd.com/api?method=docs.search&api_key=hao8pibs9fjx6pxl1i40wyvrro4a34&query=ruby%20on%20rails&scope=all"
+
+curl "api.scribd.com/api?method=docs.search&api_key=hao8pibs9fjx6pxl1i40wyvrro4a34&query=regency%20romance&scope=all"

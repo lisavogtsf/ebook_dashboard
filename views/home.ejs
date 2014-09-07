@@ -1,0 +1,33 @@
+<% include partials/header.ejs%>
+<div class="container">
+  <div class="well well-lg">
+
+    <h1>Welcome to your eBook Dashboard</h1>
+    <!--     <form action="/search">
+          <input type="text" name="searchTerm" placeholder="Enter ISBN" autosave="search">
+          <input type="submit">
+        </form> -->
+    <form class="form-horizontal" action="/search">
+      <fieldset>
+        <legend>Search</legend>
+        <div class="form-group">
+          <label for="select" class="col-lg-2 control-label">Search by ISBN</label>
+          <div class="col-lg-4">
+            <select class="form-control" name="searchTerm">
+              <% ebooks.forEach(function(ebook){ %>
+                <option><%= ebook.isbn %></option>
+              <% }) %>
+            </select><!-- close select -->
+            <p>Select an ISBN to compare information from your local, small publisher database with information about the same book on Apple iTunes Store.
+            </p>
+          </div><!-- close div column -->
+          <div class="col-lg-10 col-lg-offset-2">
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </div> <!-- close submit button -->
+        </div><!-- close form group -->
+      </fieldset>
+    </form>
+    <a href="/logout" class = "btn btn-danger btn-med">Log out here</a>
+  </div> <!--closes jumbotron-->
+</div> <!-- closes container -->
+<% include partials/footer.ejs%>

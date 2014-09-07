@@ -1,0 +1,8 @@
+running errors
+
+Lisas-MacBook-Air:firstProjectWDI lisavogtsf$ node models/index.js
+
+/Users/lisavogtsf/repos/projects_wdi/firstProjectWDI/models/ebook.js:6
+      type: DataTypes.STRING,
+ReferenceError: DataTypes is not defined
+at module.exports (/Users/lisavogtsf/repos/projects_wdi/firstProjectWDI/models/ebook.js:6:13)

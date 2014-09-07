@@ -1,0 +1,514 @@
+
+
+WORKS IN THE BROWSER NOT IN CURL??
+
+https://www.goodreads.com/search.xml?key=gQ8Ee1bJbfxTaNLwAJhiww&q=Ender%27s+Game
+
+This XML file does not appear to have any style information associated with it. The document tree is shown below.
+<GoodreadsResponse>
+<Request>
+<authentication>true</authentication>
+<key>
+<![CDATA[ gQ8Ee1bJbfxTaNLwAJhiww ]]>
+</key>
+<method>
+<![CDATA[ search_index ]]>
+</method>
+</Request>
+<search>
+<query>
+<![CDATA[ Ender's Game ]]>
+</query>
+<results-start>1</results-start>
+<results-end>19</results-end>
+<total-results>90</total-results>
+<source>Goodreads</source>
+<query-time-seconds>0.08</query-time-seconds>
+<results>
+<work>
+<books_count type="integer">1</books_count>
+<id type="integer">11571577</id>
+<original_publication_day type="integer">30</original_publication_day>
+<original_publication_month type="integer">4</original_publication_month>
+<original_publication_year type="integer">2010</original_publication_year>
+<ratings_count type="integer">419</ratings_count>
+<text_reviews_count type="integer">20</text_reviews_count>
+<average_rating>4.13</average_rating>
+<best_book type="Book">
+<id type="integer">8782597</id>
+<title>Ender's Game</title>
+<author>
+<id type="integer">2940867</id>
+<name>Frederic P. Miller</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-0bc7d2a334eb7b34f3ef3fe4286bcf79.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-673c574e721a5d4c3fd6e25b74d42bf2.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">33</books_count>
+<id type="integer">2422333</id>
+<original_publication_day type="integer" nil="true"/>
+<original_publication_month type="integer">1</original_publication_month>
+<original_publication_year type="integer">1985</original_publication_year>
+<ratings_count type="integer">606271</ratings_count>
+<text_reviews_count type="integer">30142</text_reviews_count>
+<average_rating>4.28</average_rating>
+<best_book type="Book">
+<id type="integer">375802</id>
+<title>Ender's Game (The Ender Quintet, #1)</title>
+<author>
+<id type="integer">589</id>
+<name>Orson Scott Card</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-0bc7d2a334eb7b34f3ef3fe4286bcf79.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-673c574e721a5d4c3fd6e25b74d42bf2.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">1</books_count>
+<id type="integer">22916197</id>
+<original_publication_day type="integer">9</original_publication_day>
+<original_publication_month type="integer">3</original_publication_month>
+<original_publication_year type="integer">2012</original_publication_year>
+<ratings_count type="integer">8</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<average_rating>4.50</average_rating>
+<best_book type="Book">
+<id type="integer">16695531</id>
+<title>Ender's Game</title>
+<author>
+<id type="integer">5823409</id>
+<name>Jesse Russell</name>
+</author>
+<image_url>
+https://d.gr-assets.com/books/1355921235m/16695531.jpg
+</image_url>
+<small_image_url>
+https://d.gr-assets.com/books/1355921235s/16695531.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">1</books_count>
+<id type="integer">17050695</id>
+<original_publication_day type="integer">18</original_publication_day>
+<original_publication_month type="integer">1</original_publication_month>
+<original_publication_year type="integer">2012</original_publication_year>
+<ratings_count type="integer">146</ratings_count>
+<text_reviews_count type="integer">20</text_reviews_count>
+<average_rating>4.17</average_rating>
+<best_book type="Book">
+<id type="integer">12082688</id>
+<title>Ender's Game Ultimate Collection</title>
+<author>
+<id type="integer">589</id>
+<name>Orson Scott Card</name>
+</author>
+<image_url>
+https://d.gr-assets.com/books/1372911791m/12082688.jpg
+</image_url>
+<small_image_url>
+https://d.gr-assets.com/books/1372911791s/12082688.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">1</books_count>
+<id type="integer">24873346</id>
+<original_publication_day type="integer">17</original_publication_day>
+<original_publication_month type="integer">9</original_publication_month>
+<original_publication_year type="integer">2013</original_publication_year>
+<ratings_count type="integer">133</ratings_count>
+<text_reviews_count type="integer">27</text_reviews_count>
+<average_rating>3.98</average_rating>
+<best_book type="Book">
+<id type="integer">17785967</id>
+<title>Ender's Game Graphic Novel</title>
+<author>
+<id type="integer">38491</id>
+<name>Christopher Yost</name>
+</author>
+<image_url>
+https://d.gr-assets.com/books/1375673452m/17785967.jpg
+</image_url>
+<small_image_url>
+https://d.gr-assets.com/books/1375673452s/17785967.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">3</books_count>
+<id type="integer">6581562</id>
+<original_publication_day type="integer">29</original_publication_day>
+<original_publication_month type="integer">7</original_publication_month>
+<original_publication_year type="integer">2009</original_publication_year>
+<ratings_count type="integer">13930</ratings_count>
+<text_reviews_count type="integer">122</text_reviews_count>
+<average_rating>4.36</average_rating>
+<best_book type="Book">
+<id type="integer">6393082</id>
+<title>
+Ender's Game, Volume 1: Battle School (Ender's Saga)
+</title>
+<author>
+<id type="integer">38491</id>
+<name>Christopher Yost</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-0bc7d2a334eb7b34f3ef3fe4286bcf79.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-673c574e721a5d4c3fd6e25b74d42bf2.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">2</books_count>
+<id type="integer">23636526</id>
+<original_publication_day type="integer">1</original_publication_day>
+<original_publication_month type="integer">1</original_publication_month>
+<original_publication_year type="integer">1977</original_publication_year>
+<ratings_count type="integer">87</ratings_count>
+<text_reviews_count type="integer">7</text_reviews_count>
+<average_rating>4.09</average_rating>
+<best_book type="Book">
+<id type="integer">17186695</id>
+<title>Ender's Game Short Story</title>
+<author>
+<id type="integer">589</id>
+<name>Orson Scott Card</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-0bc7d2a334eb7b34f3ef3fe4286bcf79.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-673c574e721a5d4c3fd6e25b74d42bf2.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">2</books_count>
+<id type="integer">7272274</id>
+<original_publication_day type="integer">24</original_publication_day>
+<original_publication_month type="integer">3</original_publication_month>
+<original_publication_year type="integer">2010</original_publication_year>
+<ratings_count type="integer">4974</ratings_count>
+<text_reviews_count type="integer">36</text_reviews_count>
+<average_rating>4.57</average_rating>
+<best_book type="Book">
+<id type="integer">7025086</id>
+<title>Ender's Game, Volume 2: Command School</title>
+<author>
+<id type="integer">38491</id>
+<name>Christopher Yost</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-0bc7d2a334eb7b34f3ef3fe4286bcf79.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-673c574e721a5d4c3fd6e25b74d42bf2.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">6</books_count>
+<id type="integer">26648007</id>
+<original_publication_day type="integer">29</original_publication_day>
+<original_publication_month type="integer">7</original_publication_month>
+<original_publication_year type="integer">2009</original_publication_year>
+<ratings_count type="integer">34</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<average_rating>4.35</average_rating>
+<best_book type="Book">
+<id type="integer">18756099</id>
+<title>Ender's Game: Battle School</title>
+<author>
+<id type="integer">589</id>
+<name>Orson Scott Card</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-0bc7d2a334eb7b34f3ef3fe4286bcf79.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-673c574e721a5d4c3fd6e25b74d42bf2.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">1</books_count>
+<id type="integer">10523104</id>
+<original_publication_day type="integer" nil="true"/>
+<original_publication_month type="integer" nil="true"/>
+<original_publication_year type="integer">2010</original_publication_year>
+<ratings_count type="integer">219</ratings_count>
+<text_reviews_count type="integer">20</text_reviews_count>
+<average_rating>3.75</average_rating>
+<best_book type="Book">
+<id type="integer">7734468</id>
+<title>Ender's Game: War of Gifts</title>
+<author>
+<id type="integer">236462</id>
+<name>Jake Black</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-0bc7d2a334eb7b34f3ef3fe4286bcf79.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-673c574e721a5d4c3fd6e25b74d42bf2.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">3</books_count>
+<id type="integer">12530</id>
+<original_publication_day type="integer">16</original_publication_day>
+<original_publication_month type="integer">9</original_publication_month>
+<original_publication_year type="integer">2002</original_publication_year>
+<ratings_count type="integer">1311</ratings_count>
+<text_reviews_count type="integer">53</text_reviews_count>
+<average_rating>4.47</average_rating>
+<best_book type="Book">
+<id type="integer">9735</id>
+<title>
+Ender's Game Boxed Set: Ender's Game, Ender's Shadow, Shadow of the Hegemon
+</title>
+<author>
+<id type="integer">589</id>
+<name>Orson Scott Card</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-0bc7d2a334eb7b34f3ef3fe4286bcf79.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-673c574e721a5d4c3fd6e25b74d42bf2.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">1</books_count>
+<id type="integer">24338709</id>
+<original_publication_day type="integer" nil="true"/>
+<original_publication_month type="integer" nil="true"/>
+<original_publication_year type="integer" nil="true"/>
+<ratings_count type="integer">19</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<average_rating>3.89</average_rating>
+<best_book type="Book">
+<id type="integer">17451634</id>
+<title>Ender's Game: Recruiting Valentine</title>
+<author>
+<id type="integer">236462</id>
+<name>Jake Black</name>
+</author>
+<image_url>
+https://d.gr-assets.com/books/1362082813m/17451634.jpg
+</image_url>
+<small_image_url>
+https://d.gr-assets.com/books/1362082813s/17451634.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">4</books_count>
+<id type="integer">25416110</id>
+<original_publication_day type="integer">29</original_publication_day>
+<original_publication_month type="integer">10</original_publication_month>
+<original_publication_year type="integer">2013</original_publication_year>
+<ratings_count type="integer">12</ratings_count>
+<text_reviews_count type="integer">4</text_reviews_count>
+<average_rating>4.33</average_rating>
+<best_book type="Book">
+<id type="integer">18100402</id>
+<title>Ender's Game: A Dramatization</title>
+<author>
+<id type="integer">589</id>
+<name>Orson Scott Card</name>
+</author>
+<image_url>
+https://d.gr-assets.com/books/1384711696m/18100402.jpg
+</image_url>
+<small_image_url>
+https://d.gr-assets.com/books/1384711696s/18100402.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">1</books_count>
+<id type="integer">16300443</id>
+<original_publication_day type="integer" nil="true"/>
+<original_publication_month type="integer">3</original_publication_month>
+<original_publication_year type="integer">2011</original_publication_year>
+<ratings_count type="integer">4</ratings_count>
+<text_reviews_count type="integer">0</text_reviews_count>
+<average_rating>5.00</average_rating>
+<best_book type="Book">
+<id type="integer">11369573</id>
+<title>Ender's Game: Battle Room</title>
+<author>
+<id type="integer">6094631</id>
+<name>Lambert M. Surhone</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-0bc7d2a334eb7b34f3ef3fe4286bcf79.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-673c574e721a5d4c3fd6e25b74d42bf2.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">1</books_count>
+<id type="integer">29957657</id>
+<original_publication_day type="integer">26</original_publication_day>
+<original_publication_month type="integer">1</original_publication_month>
+<original_publication_year type="integer">2011</original_publication_year>
+<ratings_count type="integer">47</ratings_count>
+<text_reviews_count type="integer">4</text_reviews_count>
+<average_rating>4.06</average_rating>
+<best_book type="Book">
+<id type="integer">20424286</id>
+<title>
+Ender's Game: Ender In Exile (Marvel Premiere Editions)
+</title>
+<author>
+<id type="integer">55830</id>
+<name>Aaron Johnston</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-0bc7d2a334eb7b34f3ef3fe4286bcf79.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-673c574e721a5d4c3fd6e25b74d42bf2.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">6</books_count>
+<id type="integer">26577846</id>
+<original_publication_day type="integer">22</original_publication_day>
+<original_publication_month type="integer">10</original_publication_month>
+<original_publication_year type="integer">2013</original_publication_year>
+<ratings_count type="integer">195</ratings_count>
+<text_reviews_count type="integer">39</text_reviews_count>
+<average_rating>4.13</average_rating>
+<best_book type="Book">
+<id type="integer">18715259</id>
+<title>Ender's Game Alive: The Full Cast Audioplay</title>
+<author>
+<id type="integer">589</id>
+<name>Orson Scott Card</name>
+</author>
+<image_url>
+https://d.gr-assets.com/books/1382658675m/18715259.jpg
+</image_url>
+<small_image_url>
+https://d.gr-assets.com/books/1382658675s/18715259.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">9</books_count>
+<id type="integer">19174329</id>
+<original_publication_day type="integer">1</original_publication_day>
+<original_publication_month type="integer">1</original_publication_month>
+<original_publication_year type="integer">2013</original_publication_year>
+<ratings_count type="integer">233</ratings_count>
+<text_reviews_count type="integer">68</text_reviews_count>
+<average_rating>3.80</average_rating>
+<best_book type="Book">
+<id type="integer">13586977</id>
+<title>
+Ender's World: Fresh Perspectives on the SF Classic Ender's Game
+</title>
+<author>
+<id type="integer">589</id>
+<name>Orson Scott Card</name>
+</author>
+<image_url>
+https://d.gr-assets.com/books/1344608510m/13586977.jpg
+</image_url>
+<small_image_url>
+https://d.gr-assets.com/books/1344608510s/13586977.jpg
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">1</books_count>
+<id type="integer">12531</id>
+<original_publication_day type="integer">14</original_publication_day>
+<original_publication_month type="integer">10</original_publication_month>
+<original_publication_year type="integer">2001</original_publication_year>
+<ratings_count type="integer">1447</ratings_count>
+<text_reviews_count type="integer">77</text_reviews_count>
+<average_rating>4.18</average_rating>
+<best_book type="Book">
+<id type="integer">9736</id>
+<title>
+Beyond Ender's Game: Speaker for the Dead, Xenocide, Children of the Mind (Ender's Saga, #2-4)
+</title>
+<author>
+<id type="integer">589</id>
+<name>Orson Scott Card</name>
+</author>
+<image_url>
+https://s.gr-assets.com/assets/nophoto/book/111x148-0bc7d2a334eb7b34f3ef3fe4286bcf79.png
+</image_url>
+<small_image_url>
+https://s.gr-assets.com/assets/nophoto/book/50x75-673c574e721a5d4c3fd6e25b74d42bf2.png
+</small_image_url>
+</best_book>
+</work>
+<work>
+<books_count type="integer">2</books_count>
+<id type="integer">27462445</id>
+<original_publication_day type="integer">3</original_publication_day>
+<original_publication_month type="integer">8</original_publication_month>
+<original_publication_year type="integer">2011</original_publication_year>
+<ratings_count type="integer">54</ratings_count>
+<text_reviews_count type="integer">3</text_reviews_count>
+<average_rating>4.00</average_rating>
+<best_book type="Book">
+<id type="integer">19390746</id>
+<title>Ender's Game: Speaker For The Dead</title>
+<author>
+<id type="integer">55830</id>
+<name>Aaron Johnston</name>
+</author>
+<image_url>
+https://d.gr-assets.com/books/1389795069m/19390746.jpg
+</image_url>
+<small_image_url>
+https://d.gr-assets.com/books/1389795069s/19390746.jpg
+</small_image_url>
+</best_book>
+</work>
+</results>
+</search>
+</GoodreadsResponse>
+
+
+
+
+curl https://www.goodreads.com/search.xml?key=gQ8Ee1bJbfxTaNLwAJhiww&q=Ender%27s+Game
+
+<GoodreadsResponse>
+  <Request>
+    <authentication>true</authentication>
+      <key><![CDATA[gQ8Ee1bJbfxTaNLwAJhiww]]></key>
+    <method><![CDATA[search_index]]></method>
+  </Request>
+  <search>
+  <query><![CDATA[]]></query>
+</search>
+
+</GoodreadsResponse> 
+[1]+  Done                    curl https://www.goodreads.com/search.xml?key=gQ8Ee1bJbfxTaNLwAJhiww

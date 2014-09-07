@@ -1,0 +1,21 @@
+key: gQ8Ee1bJbfxTaNLwAJhiww
+
+curl https://www.goodreads.com/search.xml?key=gQ8Ee1bJbfxTaNLwAJhiww&q=Ender%27s+Game
+
+
+
+
+app.get('/search', function(req, res){
+  var searchRequest = req.query.searchTerm;
+  var searchURL = "http://itunes.apple.com/lookup?isbn=" + searchRequest;
+  request(searchURL, function(error, response, body){
+    if (!error && response.statusCode == 200) {
+      var data = JSON.parse(body);
+      console.log(data.results[0]);
+      var iTunesResults = data.results[0];
+      res.render("test", {
+        iTunesResults: iTunesResults,
+        searchRequest: searchRequest
+      });
+    }
+  });
