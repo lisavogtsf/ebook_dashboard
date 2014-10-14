@@ -55,14 +55,15 @@ passport.deserializeUser(function(id, done){
 });
 
 // set up root route, check if user is logged in
-// redirect to home or login
+// redirect to search or login
 app.get('/', function(req, res){
 	if(!req.user) {
-		console.log('render login because not logged in')
-		res.render('login');
+		console.log('render index because not logged in')
+		pageTitle = "Index";
+		res.render('index', {username: "", pageTitle: pageTitle});
 	} else {
-		console.log('redirected to home from ROOT because already logged in')
-		res.redirect('/home');  
+		console.log('redirected to search from ROOT because already logged in')
+		res.redirect('/search', {username: req.body.username});  
 	}
 });
 
@@ -70,32 +71,34 @@ app.get('/', function(req, res){
 app.get('/login', function(req, res){
 	// console.log("before checking req.user:", req.user);
 	if (!req.user) {
-		res.render('login', {message: req.flash('loginMessage'), username: ""});
+		pageTitle = "Login";
+		res.render('login', {message: req.flash('loginMessage'), username: "", pageTitle: pageTitle});
 	} else {
-		console.log('redirected to home from LOGIN because already logged in')
-		res.redirect('home');
+		console.log('redirected to search from LOGIN because already logged in')
+		res.redirect('search');
 	}
 });
 
 // set up signup route, will change with passport
 app.get('/signup', function(req, res){
 	if(!req.user) {
-		res.render("signup", { username: ""});
+		pageTitle = "Signup";
+		res.render("signup", { username: "", pageTitle: pageTitle});
 	} else {
-		console.log('redirected to home from SIGNUP because already logged in')
-		res.redirect('home');
+		console.log('redirected to search from SIGNUP because already logged in')
+		res.redirect('search');
 	}
 });
 
-// route to search/user home
-app.get('/home', function(req, res){
+// route to search/user search
+app.get('/search', function(req, res){
 	if (!req.user){
-		console.log("User is NOT logged in on /home")
+		console.log("User is NOT logged in on /search")
 		res.render('login', {message: req.flash('loginMessage'), username: ""});
 	} else {
-		console.log("User is logged in on /home")
+		console.log("User is logged in on /search")
 		db.ebook.findAll().success(function(ebooks){
-			res.render('home', {
+			res.render('search', {
 				isAuthenticated: req.isAuthenticated(),
 				user: req.user,
 				ebooks: ebooks
@@ -115,7 +118,7 @@ app.post('/submit', function(req, res){
 			// error
 			// express deprecated res.redirect(ur, status): Use res.redirect(status, url) instead app.js:107:11
 			// express deprecated res.redirect(ur, status): Use res.redirect(status, url) instead app.js:105:11
-			res.redirect('home');
+			res.redirect('search');
 		});
 });
 
@@ -132,7 +135,7 @@ app.post('/submit', function(req, res){
 
 //authenticate users when logging in
 app.post('/login', passport.authenticate('local', {
-	successRedirect: '/home',
+	successRedirect: '/search',
 	failureRedirect: '/login',
 	failureFlash: true
 }));

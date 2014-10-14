@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <head>
   <!-- use ejs and javascript to change this to match the title of the current page -->
-  <title>eBook Dashboard</title>
+  <title>eBook Dashboard | <%= pageTitle || "search"  %></title>
   <!-- Latest compiled and minified CSS -->
   <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   <link rel="stylesheet" type="text/css" href="custom_style.css">
@@ -11,7 +11,7 @@
 		<div class="well well-lg">
 		<!-- <div class="jumbotron"> -->
 	  		<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-	  			<li><a href="/home" data-toggle="tab">Home</a></li>
+	  			<li><a href="/search" data-toggle="tab">Search</a></li>
 	  			<li><a href="/logout" data-toggle="tab">Logout</a></li>
 			</ul>
 
