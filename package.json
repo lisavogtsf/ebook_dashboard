@@ -1,14 +1,14 @@
 {
-  "name": "firstProjectWDI",
+  "name": "ebook_dashboard",
   "version": "0.0.0",
-  "description": "First attempt at WDI project 1",
+  "description": "eBook Dashboard",
   "main": "app.js",
   "scripts": {
     "test": "mocha --recursive --reporter spec"
   },
   "author": "Lisa Vogt",
   "license": "ISC",
-  "homepage": "https://github.com/lisavogtsf/firstProjectWDI",
+  "homepage": "https://github.com/lisavogtsf/ebook_dashboard",
   "dependencies": {
     "async": "^0.9.0",
     "bcrypt": "^0.7.8",
@@ -18,6 +18,7 @@
     "cookie-session": "^1.0.2",
     "ejs": "^1.0.0",
     "express": "^4.7.2",
+    "locus": "^0.1.0",
     "lodash": "^2.4.1",
     "method-override": "^2.1.2",
     "passport": "^0.2.0",
