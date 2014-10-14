@@ -891,7 +891,10 @@ body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
+<<<<<<< HEAD
   /*background-image: url("bigbook.png");*/
+=======
+>>>>>>> 31a4b83096c67d87b799fdaf67b904fd0bd78584
   color: #c8c8c8;
   background-color: #572b30;
 }

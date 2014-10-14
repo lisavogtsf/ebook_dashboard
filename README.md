@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #eBook Dashboard
 
 The first of three projects for the Web Development Immersive at General Assembly.
@@ -20,3 +21,11 @@ The preloaded titles are from the small ebook publisher [Belgrave House/Regency 
 
 ###Find it Here:
 [http://ebook-dashboard.herokuapp.com/](http://ebook-dashboard.herokuapp.com/ "http://ebook-dashboard.herokuapp.com/")
+=======
+firstProjectWDI
+===============
+
+My first of three projects for the Web Development Immersive at General Assembly.
+
+Starting with express server and views
+>>>>>>> 31a4b83096c67d87b799fdaf67b904fd0bd78584
