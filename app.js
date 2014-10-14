@@ -15,6 +15,8 @@ var express = require('express'),
 	// a module for help making async requests
 	async = require('async'),
 	request = require('request');
+//default page title 
+var pageTitle = "Node.js";
 var db = require('./models/index');
 var app = express();
 
@@ -63,7 +65,7 @@ app.get('/', function(req, res){
 		res.render('index', {username: "", pageTitle: pageTitle});
 	} else {
 		console.log('redirected to search from ROOT because already logged in')
-		res.redirect('/search', {username: req.body.username});  
+		res.redirect('/search', {username: req.body.username, pageTitle: pageTitle});  
 	}
 });
 
@@ -75,7 +77,7 @@ app.get('/login', function(req, res){
 		res.render('login', {message: req.flash('loginMessage'), username: "", pageTitle: pageTitle});
 	} else {
 		console.log('redirected to search from LOGIN because already logged in')
-		res.redirect('search');
+		res.redirect('search', {pageTitle: pageTitle});
 	}
 });
 
@@ -86,7 +88,7 @@ app.get('/signup', function(req, res){
 		res.render("signup", { username: "", pageTitle: pageTitle});
 	} else {
 		console.log('redirected to search from SIGNUP because already logged in')
-		res.redirect('search');
+		res.redirect('search', {pageTitle: pageTitle});
 	}
 });
 
@@ -94,13 +96,14 @@ app.get('/signup', function(req, res){
 app.get('/search', function(req, res){
 	if (!req.user){
 		console.log("User is NOT logged in on /search")
-		res.render('login', {message: req.flash('loginMessage'), username: ""});
+		res.render('login', {message: req.flash('loginMessage'), username: "", pageTitle: pageTitle});
 	} else {
 		console.log("User is logged in on /search")
 		db.ebook.findAll().success(function(ebooks){
 			res.render('search', {
-				isAuthenticated: req.isAuthenticated(),
+				isAuthenticated: req.isAuthenticated(), // remove?
 				user: req.user,
+				pageTitle: pageTitle,
 				ebooks: ebooks
 			});
 		});
@@ -109,16 +112,16 @@ app.get('/search', function(req, res){
 
 app.post('/submit', function(req, res){
 	// error happens shortly after this
-	// console.log('******after signup, req ', req);
+	console.log('******after signup, req= ', req.body);
 	db.user.createNewUser(req.body.username, req.body.password,
 		function(err){
-			res.render('signup', {message: err.message, username: req.body.username});
+			res.render('signup', {message: err.message, username: req.body.username, pageTitle: pageTitle});
 		},
 		function(success){
 			// error
 			// express deprecated res.redirect(ur, status): Use res.redirect(status, url) instead app.js:107:11
 			// express deprecated res.redirect(ur, status): Use res.redirect(status, url) instead app.js:105:11
-			res.redirect('search');
+			res.redirect('search', {pageTitle: pageTitle});
 		});
 });
 
