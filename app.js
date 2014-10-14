@@ -65,7 +65,7 @@ app.get('/', function(req, res){
 		res.render('index', {username: "", pageTitle: pageTitle});
 	} else {
 		console.log('redirected to search from ROOT because already logged in')
-		res.redirect('/search', {username: req.body.username, pageTitle: pageTitle});  
+		res.redirect('/search');  
 	}
 });
 
@@ -77,7 +77,7 @@ app.get('/login', function(req, res){
 		res.render('login', {message: req.flash('loginMessage'), username: "", pageTitle: pageTitle});
 	} else {
 		console.log('redirected to search from LOGIN because already logged in')
-		res.redirect('search', {pageTitle: pageTitle});
+		res.redirect('search');
 	}
 });
 
@@ -88,15 +88,15 @@ app.get('/signup', function(req, res){
 		res.render("signup", { username: "", pageTitle: pageTitle});
 	} else {
 		console.log('redirected to search from SIGNUP because already logged in')
-		res.redirect('search', {pageTitle: pageTitle});
+		res.redirect('search');
 	}
 });
 
 // route to search/user search
 app.get('/search', function(req, res){
 	if (!req.user){
-		console.log("User is NOT logged in on /search")
-		res.render('login', {message: req.flash('loginMessage'), username: "", pageTitle: pageTitle});
+		console.log("User is NOT logged in on /search, redirects to login")
+		res.redirect('login');
 	} else {
 		console.log("User is logged in on /search")
 		db.ebook.findAll().success(function(ebooks){
@@ -110,18 +110,19 @@ app.get('/search', function(req, res){
 	}
 });
 
+// submit signup user from /signup
 app.post('/submit', function(req, res){
 	// error happens shortly after this
 	console.log('******after signup, req= ', req.body);
 	db.user.createNewUser(req.body.username, req.body.password,
 		function(err){
+			// error creating new user, why render not redirect? To pass parameters?
+			pageTitle = "Signup";
 			res.render('signup', {message: err.message, username: req.body.username, pageTitle: pageTitle});
 		},
 		function(success){
-			// error
-			// express deprecated res.redirect(ur, status): Use res.redirect(status, url) instead app.js:107:11
-			// express deprecated res.redirect(ur, status): Use res.redirect(status, url) instead app.js:105:11
-			res.redirect('search', {pageTitle: pageTitle});
+			// success sends to search, and /search render route supplies variables
+			res.redirect('search');
 		});
 });
 
@@ -150,7 +151,7 @@ app.get('/logout', function(req, res){
 
 
 // works to get all prices
-app.get('/search', function(req, res){
+app.get('/ISBNsearch', function(req, res){
 
 	var searchRequest = req.query.searchTerm;
 
