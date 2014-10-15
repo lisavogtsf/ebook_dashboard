@@ -92,8 +92,22 @@ app.get('/signup', function(req, res){
 	}
 });
 
+// user account page, requires login
+app.get('/account', function(req, res){
+	console.log("arrives at account route before testing for logged in or not")
+	if (!req.user){
+		console.log("if User is NOT logged in on /account, redirects to login")
+		res.redirect('login');
+	} else {
+		// user logged in
+		pageTitle = 'User Account';
+		res.render('account', {pageTitle: pageTitle});
+	}
+});
+
 // route to search/user search
 app.get('/search', function(req, res){
+	console.log("arrives at search route before testing for logged in or not")
 	if (!req.user){
 		console.log("User is NOT logged in on /search, redirects to login")
 		res.redirect('login');
@@ -111,18 +125,29 @@ app.get('/search', function(req, res){
 });
 
 // submit signup user from /signup
-app.post('/submit', function(req, res){
+app.post('/signup', function(req, res){
 	// error happens shortly after this
-	console.log('******after signup, req= ', req.body);
+	console.log('******after post/signup, before createNewUser, req= ', req.body);
 	db.user.createNewUser(req.body.username, req.body.password,
 		function(err){
 			// error creating new user, why render not redirect? To pass parameters?
+			// unsuccessful signup
+			console.log("There was an error in createNewUser, so rendering signup form")
 			pageTitle = "Signup";
 			res.render('signup', {message: err.message, username: req.body.username, pageTitle: pageTitle});
 		},
 		function(success){
 			// success sends to search, and /search render route supplies variables
-			res.redirect('search');
+			console.log('Confirming a new user signed up and new user was created');
+			console.log("User should be logged in on /search")
+				db.ebook.findAll().success(function(ebooks){
+					res.render('search', {
+						isAuthenticated: req.isAuthenticated(), // remove?
+						user: req.user,
+						pageTitle: pageTitle,
+						ebooks: ebooks
+					});
+				});
 		});
 });
 
