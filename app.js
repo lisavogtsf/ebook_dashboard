@@ -67,7 +67,7 @@ app.get('/', function(req, res){
 		// render index with username
 		username = req.user.username;
 		pageTitle = "Index";
-		res.render('index', {username: "", pageTitle: pageTitle});
+		res.render('index', {username: username, pageTitle: pageTitle});
 	}
 });
 
