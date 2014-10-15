@@ -11,11 +11,13 @@
 		<div class="well well-lg">
 		<!-- <div class="jumbotron"> -->
 		<% if (username === "") { %><!--  if not logged in -->
-	  		<ul class="nav nav-tabs" style="margin-bottom: 15px;">
+<div >
+	  		<ul class="nav nav-tabs" >
 	  			<li><a href="/search" data-toggle="tab">Search</a></li>
 	  			<li><a href="/login" data-toggle="tab">Login</a></li>
 	  			<li><a href="/signup" data-toggle="tab">Signup</a></li>
 			</ul>
+</div>
 		<% } else { %><!--  if logged in -->
 	  		<ul class="nav nav-tabs" style="margin-bottom: 15px;">
 	  			<li><a href="/search" data-toggle="tab">Search</a></li>
