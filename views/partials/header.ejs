@@ -11,17 +11,19 @@
 		<div class="well well-lg">
 		<!-- <div class="jumbotron"> -->
 		<% if (username === "") { %><!--  if not logged in -->
-<div >
+			<div>
 	  		<ul class="nav nav-tabs" >
-	  			<li><a href="/search" data-toggle="tab">Search</a></li>
-	  			<li><a href="/login" data-toggle="tab">Login</a></li>
-	  			<li><a href="/signup" data-toggle="tab">Signup</a></li>
+	  			<li><a href="/" class=""><h4>eBookDashboard</h4></a></li>
+	  			<li><a href="/search" data-toggle="tab"><h4>Search by ISBN</h4></a></li>
+	  			<li><a href="/login" data-toggle="tab"><h4>Login</h4></a></li>
+	  			<li><a href="/signup" data-toggle="tab"><h4>Signup</h4></a></li>
 			</ul>
-</div>
+			</div>
 		<% } else { %><!--  if logged in -->
-	  		<ul class="nav nav-tabs" style="margin-bottom: 15px;">
-	  			<li><a href="/search" data-toggle="tab">Search</a></li>
-	  			<li><a href="/logout" data-toggle="tab">Logout</a></li>
+	  		<ul class="nav nav-tabs" >
+	  			<li><a href="/" class=""><h4>eBookDashboard</h4></a></li>
+	  			<li><a href="/search" data-toggle="tab"><h4>Search by ISBN</h4></a></li>
+	  			<li><a href="/logout" data-toggle="tab"><h4>Logout</h4></a></li>
 			</ul>
 		<% } %>
 
