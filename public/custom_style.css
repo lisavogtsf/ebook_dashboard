@@ -892,13 +892,15 @@ body {
   font-size: 14px;
   line-height: 1.42857143;
   color: #c8c8c8;
-  background-color: #572b30;
+
 /*  background: url(http://avmedia.info/blog/wp-content/uploads/2014/07/classic-library-book-free-desktop-wallpaper-3840x2400.jpg);*/
-  background: url(http://avmedia.info/blog/wp-content/uploads/2014/07/classic-library-book-free-desktop-wallpaper-3840x2400.jpg) no-repeat center center fixed; 
+  background: url(http://www.avmedia.info/blog/wp-content/uploads/2014/07/classic-library-book-free-desktop-wallpaper-3840x2400.jpg) no-repeat center center fixed; 
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+    background-color: #572b30;
 }
 input,
 button,
