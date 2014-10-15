@@ -2,11 +2,24 @@
 <% include partials/header.ejs%>
 <div class="row">
 <!--   <div class="well well-lg"> -->
-  <div class="col-md-offset-1 col-sm-offset-1">
+  <div class="col-md-offset-1 col-sm-offset-1 col-md-7">
     <h1>Account Page</h1>
+	
+	<form class="form-horizontal">
+	<fieldset>
+	<legend>Account Details</legend>
+            <div class="form-group"> <!-- Username -->
+              <label for="inputUsername" class="col-sm-2 control-label">Username</label>
+              <div class="col-sm-4">
+                <input type="text" class="form-control" value="<%= username %>" style="cursor: auto;">
+              </div>
+            </div> <!-- closes Username -->
+            </fieldset>
+            </form>
 
     
-    <a href="/logout" class = "btn btn-danger btn-med">Log out here</a>
+        <p><em>The ebook dashboard is a product designed for small ebook publishers who sell from their own websites as well as through third-party websites like the Apple iTunes Store, Amazon's Kindle Direct Publishing, Barnes and Noble's NOOK store, Scribd and Kobo. </em>
+        </p>
   </div><!--  closes column -->
 </div> <!--closes row-->
 
