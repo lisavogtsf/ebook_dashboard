@@ -17,6 +17,7 @@ var express = require('express'),
 	request = require('request');
 //default page title 
 var pageTitle = "Node.js";
+var loggedIn = false;
 var db = require('./models/index');
 var app = express();
 
@@ -100,8 +101,9 @@ app.get('/account', function(req, res){
 		res.redirect('login');
 	} else {
 		// user logged in
+		username = req.body.username;
 		pageTitle = 'User Account';
-		res.render('account', {pageTitle: pageTitle});
+		res.render('account', {username: username, pageTitle: pageTitle});
 	}
 });
 
@@ -114,9 +116,12 @@ app.get('/search', function(req, res){
 	} else {
 		console.log("User is logged in on /search")
 		db.ebook.findAll().success(function(ebooks){
+			username = req.body.username;
+			pageTitle = "Search";
 			res.render('search', {
 				isAuthenticated: req.isAuthenticated(), // remove?
 				user: req.user,
+				username: username,
 				pageTitle: pageTitle,
 				ebooks: ebooks
 			});
@@ -133,17 +138,21 @@ app.post('/signup', function(req, res){
 			// error creating new user, why render not redirect? To pass parameters?
 			// unsuccessful signup
 			console.log("There was an error in createNewUser, so rendering signup form")
+			username = req.body.username;
 			pageTitle = "Signup";
-			res.render('signup', {message: err.message, username: req.body.username, pageTitle: pageTitle});
+			res.render('signup', {message: err.message, username: username, pageTitle: pageTitle});
 		},
 		function(success){
 			// success sends to search, and /search render route supplies variables
 			console.log('Confirming a new user signed up and new user was created');
 			console.log("User should be logged in on /search")
 				db.ebook.findAll().success(function(ebooks){
+					username = req.body.username;
+					pageTitle = "Search";
 					res.render('search', {
 						isAuthenticated: req.isAuthenticated(), // remove?
 						user: req.user,
+						username: username,
 						pageTitle: pageTitle,
 						ebooks: ebooks
 					});
@@ -272,9 +281,13 @@ app.get('/ISBNsearch', function(req, res){
 
 		// console.log("ebooks,", ebooks);
 		ebook.getAuthor().success(function (writer) {
+			pageTitle = "Search Results";
+			username = req.body.username;
 			res.render("details", {
 				iTunesResults: iTunesResults,
 				searchRequest: req.query.searchTerm,
+				pageTitle: pageTitle,
+				username: username,
 				author: writer,
 				ebook: ebook
 			});
@@ -285,8 +298,10 @@ app.get('/ISBNsearch', function(req, res){
 
 // For any incorrect URL routes 
 app.get('/*', function(req,res){
+	pageTitle = "Error";
+	username = req.body.username;
 	res.status(404);
-	res.render('error');
+	res.render('error', {username: username, pageTitle: pageTitle});
 	// res.redirect('login');
 	// console.log('ERROR PAGE WORKING PROPERLY IF THIS SHOWS UP');
 });
