@@ -292,19 +292,37 @@ app.get('/ISBNsearch', function(req, res){
 		}
 	],function(err, iTunesResults){
 
-		// console.log("ebooks,", ebooks);
-		ebook.getAuthor().success(function (writer) {
-			pageTitle = "Search Results";
-			username = req.user.username;
-			res.render("details", {
-				iTunesResults: iTunesResults,
-				searchRequest: req.query.searchTerm,
-				pageTitle: pageTitle,
-				username: username,
-				author: writer,
-				ebook: ebook
+		if (!req.user) {
+			// user not logged in
+			// console.log("ebooks,", ebooks);
+			ebook.getAuthor().success(function (writer) {
+				pageTitle = "Search Results";
+				res.render("details", {
+					iTunesResults: iTunesResults,
+					searchRequest: req.query.searchTerm,
+					pageTitle: pageTitle,
+					username: "",
+					author: writer,
+					ebook: ebook
+				});
 			});
-		});
+		} else {
+			// user is logged in
+			// console.log("ebooks,", ebooks);
+			ebook.getAuthor().success(function (writer) {
+				pageTitle = "Search Results";
+				username = req.user.username;
+				res.render("details", {
+					iTunesResults: iTunesResults,
+					searchRequest: req.query.searchTerm,
+					pageTitle: pageTitle,
+					username: username,
+					author: writer,
+					ebook: ebook
+				});
+			});			
+		}
+
 	});
 });
 });
