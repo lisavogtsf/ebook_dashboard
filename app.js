@@ -57,16 +57,17 @@ passport.deserializeUser(function(id, done){
 	});
 });
 
-// set up root route, check if user is logged in
-// redirect to search or login
+// ok for logged in or not
 app.get('/', function(req, res){
 	if(!req.user) {
-		console.log('render index because not logged in')
+		console.log('render index without username because not logged in')
 		pageTitle = "Index";
 		res.render('index', {username: "", pageTitle: pageTitle});
 	} else {
-		console.log('redirected to search from ROOT because already logged in')
-		res.redirect('/search');  
+		// render index with username
+		username = req.body.username;
+		pageTitle = "Index";
+		res.render('index', {username: "", pageTitle: pageTitle});
 	}
 });
 
@@ -107,12 +108,22 @@ app.get('/account', function(req, res){
 	}
 });
 
-// route to search/user search
+// route to search/user search make available to public
 app.get('/search', function(req, res){
 	console.log("arrives at search route before testing for logged in or not")
 	if (!req.user){
 		console.log("User is NOT logged in on /search, redirects to login")
-		res.redirect('login');
+		db.ebook.findAll().success(function(ebooks){
+			username = "";
+			pageTitle = "Search";
+			res.render('search', {
+				isAuthenticated: req.isAuthenticated(), // remove?
+				user: req.user,
+				username: username,
+				pageTitle: pageTitle,
+				ebooks: ebooks
+			});
+		});
 	} else {
 		console.log("User is logged in on /search")
 		db.ebook.findAll().success(function(ebooks){
